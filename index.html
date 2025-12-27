@@ -45,12 +45,19 @@
 
 <body class="bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-200 font-sans transition-colors duration-200">
 
-<!-- Dark Mode Toggle -->
+<!-- Dark Mode Toggle with Icons -->
 <div class="fixed top-6 right-6 z-50">
   <button onclick="toggleDark()"
-    class="w-10 h-5 rounded-full bg-zinc-300 dark:bg-zinc-700 relative transition-colors">
+    class="w-12 h-6 rounded-full bg-zinc-300 dark:bg-zinc-700 relative transition-colors group">
     <span id="dot"
-      class="absolute top-0.5 left-0.5 w-4 h-4 rounded-full bg-white dark:bg-zinc-900 transition-all duration-300"></span>
+      class="absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-white dark:bg-zinc-900 transition-all duration-300 flex items-center justify-center">
+      <i id="mode-icon" class="fas fa-moon text-xs text-yellow-500 dark:hidden"></i>
+      <i id="mode-icon" class="fas fa-sun text-xs text-yellow-400 hidden dark:block"></i>
+    </span>
+    <span class="absolute inset-0 flex items-center justify-between px-1.5">
+      <i class="fas fa-moon text-xs text-zinc-700 dark:text-zinc-300"></i>
+      <i class="fas fa-sun text-xs text-zinc-700 dark:text-zinc-300"></i>
+    </span>
   </button>
 </div>
 
@@ -95,7 +102,7 @@
           <p>
            Hi! I'm a 20-year-old student from the University of Makati with a strong passion for coding and technology. 
            My programming journey began back in Senior High School, where I first discovered my interest in web and software development.
-            Since then, I’ve been continuously learning, building, and improving my skills in programming especially in creating web applications.
+            Since then, I've been continuously learning, building, and improving my skills in programming especially in creating web applications.
           </p>
         </div>
       </div>
@@ -243,28 +250,64 @@
             <div class="project-item">
               <h4 class="font-medium text-zinc-900 dark:text-white mb-1">Golden Horizon</h4>
               <p class="text-sm text-zinc-600 dark:text-zinc-400 mb-1">Java Based Hotel Reservation Project</p>
-              <p class="text-sm font-mono text-blue-600 dark:text-blue-400">github.com</p>
+              <div class="flex gap-2">
+                <a href="https://github.com/vince/golden-horizon" target="_blank" 
+                  class="inline-flex items-center gap-1 text-sm px-3 py-1.5 border border-zinc-300 dark:border-zinc-700 rounded-md hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors">
+                  <i class="fab fa-github"></i> Code
+                </a>
+                <a href="https://demo.goldenhorizon.com" target="_blank"
+                  class="inline-flex items-center gap-1 text-sm px-3 py-1.5 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">
+                  <i class="fas fa-external-link-alt"></i> Live Demo
+                </a>
+              </div>
             </div>
             
             <!-- Project 2 -->
             <div class="project-item">
               <h4 class="font-medium text-zinc-900 dark:text-white mb-1">GMCAMSYS</h4>
               <p class="text-sm text-zinc-600 dark:text-zinc-400 mb-1">Web-Based Showcasing Website</p>
-              <p class="text-sm font-mono text-blue-600 dark:text-blue-400">github.com</p>
+              <div class="flex gap-2">
+                <a href="https://github.com/vince/gmcamsys" target="_blank"
+                  class="inline-flex items-center gap-1 text-sm px-3 py-1.5 border border-zinc-300 dark:border-zinc-700 rounded-md hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors">
+                  <i class="fab fa-github"></i> Code
+                </a>
+                <a href="https://gmcamsys-demo.com" target="_blank"
+                  class="inline-flex items-center gap-1 text-sm px-3 py-1.5 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">
+                  <i class="fas fa-external-link-alt"></i> Live Demo
+                </a>
+              </div>
             </div>
             
             <!-- Project 3 -->
             <div class="project-item">
               <h4 class="font-medium text-zinc-900 dark:text-white mb-1">LDC-DENTSYS</h4>
               <p class="text-sm text-zinc-600 dark:text-zinc-400 mb-1">Web-Based Dental Appointment System with AI Support</p>
-              <p class="text-sm font-mono text-blue-600 dark:text-blue-400">github.com</p>
+              <div class="flex gap-2">
+                <a href="https://github.com/vince/ldc-dentsys" target="_blank"
+                  class="inline-flex items-center gap-1 text-sm px-3 py-1.5 border border-zinc-300 dark:border-zinc-700 rounded-md hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors">
+                  <i class="fab fa-github"></i> Code
+                </a>
+                <a href="https://dentsys-demo.com" target="_blank"
+                  class="inline-flex items-center gap-1 text-sm px-3 py-1.5 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">
+                  <i class="fas fa-external-link-alt"></i> Live Demo
+                </a>
+              </div>
             </div>
             
             <!-- Project 4 -->
             <div class="project-item">
               <h4 class="font-medium text-zinc-900 dark:text-white mb-1">TipidBuddy</h4>
               <p class="text-sm text-zinc-600 dark:text-zinc-400 mb-1">Android-Based Java Savings and Expenses Tracker</p>
-              <p class="text-sm font-mono text-blue-600 dark:text-blue-400">github.com</p>
+              <div class="flex gap-2">
+                <a href="https://github.com/vince/tipidbuddy" target="_blank"
+                  class="inline-flex items-center gap-1 text-sm px-3 py-1.5 border border-zinc-300 dark:border-zinc-700 rounded-md hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors">
+                  <i class="fab fa-github"></i> Code
+                </a>
+                <a href="https://tipidbuddy-demo.com" target="_blank"
+                  class="inline-flex items-center gap-1 text-sm px-3 py-1.5 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">
+                  <i class="fas fa-external-link-alt"></i> Live Demo
+                </a>
+              </div>
             </div>
           </div>
           
@@ -280,22 +323,40 @@
           
           <div class="space-y-6">
             <!-- Certification 1 -->
-            <div class="certification-item">
-              <h4 class="font-medium text-zinc-900 dark:text-white mb-1">Dean Lister</h4>
-              <p class="text-sm text-zinc-600 dark:text-zinc-400">University of Makati</p>
-            </div>
+            <a href="https://example.com/certifications/dean-lister" target="_blank" 
+              class="certification-item block p-4 rounded-lg border border-transparent hover:border-blue-300 dark:hover:border-blue-700 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all duration-300 hover:shadow-md cursor-pointer group">
+              <div class="flex items-start justify-between">
+                <div>
+                  <h4 class="font-medium text-zinc-900 dark:text-white mb-1 group-hover:text-blue-700 dark:group-hover:text-blue-300">Dean Lister</h4>
+                  <p class="text-sm text-zinc-600 dark:text-zinc-400">University of Makati</p>
+                </div>
+                <i class="fas fa-external-link-alt text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity mt-1"></i>
+              </div>
+            </a>
             
             <!-- Certification 2 -->
-            <div class="certification-item">
-              <h4 class="font-medium text-zinc-900 dark:text-white mb-1">Infotech Olympics 2025</h4>
-              <p class="text-sm text-zinc-600 dark:text-zinc-400">University of Makati</p>
-            </div>
+            <a href="https://example.com/certifications/infotech-olympics-2025" target="_blank"
+              class="certification-item block p-4 rounded-lg border border-transparent hover:border-blue-300 dark:hover:border-blue-700 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all duration-300 hover:shadow-md cursor-pointer group">
+              <div class="flex items-start justify-between">
+                <div>
+                  <h4 class="font-medium text-zinc-900 dark:text-white mb-1 group-hover:text-blue-700 dark:group-hover:text-blue-300">Infotech Olympics 2025</h4>
+                  <p class="text-sm text-zinc-600 dark:text-zinc-400">University of Makati</p>
+                </div>
+                <i class="fas fa-external-link-alt text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity mt-1"></i>
+              </div>
+            </a>
             
             <!-- Certification 3 -->
-            <div class="certification-item">
-              <h4 class="font-medium text-zinc-900 dark:text-white mb-1">IT 14th Skills Olympics 2025</h4>
-              <p class="text-sm text-zinc-600 dark:text-zinc-400">University of Makati</p>
-            </div>
+            <a href="https://example.com/certifications/it-skills-olympics-2025" target="_blank"
+              class="certification-item block p-4 rounded-lg border border-transparent hover:border-blue-300 dark:hover:border-blue-700 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all duration-300 hover:shadow-md cursor-pointer group">
+              <div class="flex items-start justify-between">
+                <div>
+                  <h4 class="font-medium text-zinc-900 dark:text-white mb-1 group-hover:text-blue-700 dark:group-hover:text-blue-300">IT 14th Skills Olympics 2025</h4>
+                  <p class="text-sm text-zinc-600 dark:text-zinc-400">University of Makati</p>
+                </div>
+                <i class="fas fa-external-link-alt text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity mt-1"></i>
+              </div>
+            </a>
             
           </div>
           
@@ -386,23 +447,78 @@
 
 <style>
   .tech-item {
-    @apply px-4 py-3 rounded-xl border transition-all duration-300 hover:scale-[1.02] hover:shadow-md cursor-pointer;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    border-radius: 0.75rem;
+    border-width: 1px;
+    transition: all 0.3s ease;
+  }
+  
+  .tech-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    cursor: pointer;
   }
 
   .experience-item {
-    @apply pb-6 border-b border-zinc-100 dark:border-zinc-800 last:border-0 last:pb-0;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgb(244 244 245);
+  }
+  
+  .dark .experience-item {
+    border-bottom-color: rgb(39 39 42);
+  }
+  
+  .experience-item:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
   }
 
   .year-badge {
-    @apply bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 text-xs font-medium px-2 py-1 rounded;
+    background-color: rgb(244 244 245);
+    color: rgb(63 63 70);
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    border-radius: 0.25rem;
+  }
+  
+  .dark .year-badge {
+    background-color: rgb(39 39 42);
+    color: rgb(212 212 216);
   }
 
   .project-item {
-    @apply pb-6 border-b border-zinc-100 dark:border-zinc-800 last:border-0 last:pb-0;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgb(244 244 245);
+  }
+  
+  .dark .project-item {
+    border-bottom-color: rgb(39 39 42);
+  }
+  
+  .project-item:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
   }
 
   .certification-item {
-    @apply pb-6 border-b border-zinc-100 dark:border-zinc-800 last:border-0 last:pb-0;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgb(244 244 245);
+  }
+  
+  .dark .certification-item {
+    border-bottom-color: rgb(39 39 42);
+  }
+  
+  .certification-item:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
   }
 </style>
 
@@ -414,7 +530,7 @@
     
     const dot = document.getElementById('dot');
     if (html.classList.contains('dark')) {
-      dot.style.transform = 'translateX(20px)';
+      dot.style.transform = 'translateX(24px)';
     } else {
       dot.style.transform = 'translateX(0)';
     }
@@ -448,7 +564,7 @@
   // Initialize dark mode based on system preference
   if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
     document.documentElement.classList.add('dark');
-    document.getElementById('dot').style.transform = 'translateX(20px)';
+    document.getElementById('dot').style.transform = 'translateX(24px)';
   }
 </script>
 
