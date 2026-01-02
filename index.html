@@ -435,13 +435,13 @@
         </div>
         <div class="mt-6 pt-6 border-t border-zinc-200 dark:border-zinc-800">
           <div class="flex justify-center space-x-4">
-            <a href="#" class="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors">
+            <a href="https://www.facebook.com/vince.padilla.401193" target="_blank" class="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors">
               <i class="fab fa-facebook text-lg"></i>
             </a>
-            <a href="#" class="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors">
+            <a href="https://github.com/vincepadilla" target="_blank" class="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors">
               <i class="fab fa-github text-lg"></i>
             </a>
-            <a href="#" class="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors">
+            <a href="https://www.linkedin.com/in/vince-henrick-padilla-97919a375" target="_blank" class="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors">
               <i class="fab fa-linkedin text-lg"></i>
             </a>
            
@@ -567,6 +567,22 @@
   </div>
 </section>
 </main>
+
+<!-- Contact Modal -->
+<div id="contact-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+  <div class="bg-white dark:bg-zinc-900 rounded-lg w-11/12 sm:w-96 p-6">
+    <h3 class="text-lg font-semibold text-zinc-900 dark:text-white mb-4">Send a Message</h3>
+    <form id="contact-form" onsubmit="submitContact(event)" class="space-y-3">
+      <input id="contact-name" type="text" placeholder="Your name" class="w-full px-3 py-2 border border-zinc-200 dark:border-zinc-700 rounded-md bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-200" />
+      <input id="contact-email" type="email" placeholder="Your email" class="w-full px-3 py-2 border border-zinc-200 dark:border-zinc-700 rounded-md bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-200" />
+      <textarea id="contact-message" rows="4" placeholder="Your message" class="w-full px-3 py-2 border border-zinc-200 dark:border-zinc-700 rounded-md bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-200"></textarea>
+      <div class="flex justify-end gap-2">
+        <button type="button" onclick="closeContactModal()" class="px-4 py-2 rounded-md border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-zinc-700 dark:text-zinc-200">Cancel</button>
+        <button type="submit" class="px-4 py-2 rounded-md bg-blue-600 text-white">Send Message</button>
+      </div>
+    </form>
+  </div>
+</div>
 
 <!-- Footer -->
 <footer class="max-w-6xl mx-auto px-4 py-6 border-t border-zinc-200 dark:border-zinc-800 mt-12">
@@ -712,8 +728,50 @@
   }
 
   function sendEmail() {
-    window.location.href = 'mailto:hello@bryllim.com';
+    const modal = document.getElementById('contact-modal');
+    if (modal) {
+      modal.classList.remove('hidden');
+      const nameInput = document.getElementById('contact-name');
+      if (nameInput) nameInput.focus();
+    }
   }
+
+  function closeContactModal() {
+    const modal = document.getElementById('contact-modal');
+    if (modal) modal.classList.add('hidden');
+  }
+
+  function validateEmail(email) {
+    return /\S+@\S+\.\S+/.test(email);
+  }
+
+  function submitContact(e) {
+    e.preventDefault();
+    const name = (document.getElementById('contact-name') || {}).value || '';
+    const email = (document.getElementById('contact-email') || {}).value || '';
+    const message = (document.getElementById('contact-message') || {}).value || '';
+
+    if (!name.trim() || !email.trim() || !message.trim()) {
+      alert('Please fill out name, email, and message.');
+      return;
+    }
+    if (!validateEmail(email.trim())) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+
+    const subject = `Message from ${name.trim()} (${email.trim()})`;
+    const body = message.trim();
+    const mailto = `mailto:hello@bryllim.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    // Open user's email client with prefilled message
+    window.location.href = mailto;
+    closeContactModal();
+  }
+
+  // Close modal on Escape
+  document.addEventListener('keydown', (ev) => {
+    if (ev.key === 'Escape') closeContactModal();
+  });
 
   function visitCommunity() {
     alert('Visit Community: This would redirect to the community page.');
