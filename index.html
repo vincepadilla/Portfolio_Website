@@ -51,12 +51,10 @@
     class="w-12 h-6 rounded-full bg-zinc-300 dark:bg-zinc-700 relative transition-colors group">
     <span id="dot"
       class="absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-white dark:bg-zinc-900 transition-all duration-300 flex items-center justify-center">
-      <i id="mode-icon" class="fas fa-moon text-xs text-yellow-500 dark:hidden"></i>
-      <i id="mode-icon" class="fas fa-sun text-xs text-yellow-400 hidden dark:block"></i>
     </span>
     <span class="absolute inset-0 flex items-center justify-between px-1.5">
-      <i class="fas fa-moon text-xs text-zinc-700 dark:text-zinc-300"></i>
       <i class="fas fa-sun text-xs text-zinc-700 dark:text-zinc-300"></i>
+      <i class="fas fa-moon text-xs text-zinc-700 dark:text-zinc-300"></i>
     </span>
   </button>
 </div>
@@ -122,10 +120,10 @@
           <div>
             <h3 class="font-semibold text-zinc-800 dark:text-zinc-300 mb-4 text-lg">Frontend</h3>
             <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
-              <div class="tech-item bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 border-blue-200 dark:border-blue-800">
+              <div class="tech-item bg-gradient-to-br from-orange-50 to-blue-100 dark:from-orange-900/20 dark:to-orange-800/20 border-orange-200 dark:border-orange-800">
                 <div class="flex items-center">
-                  <div class="w-8 h-8 rounded-lg bg-blue-100 dark:bg-blue-800/40 flex items-center justify-center mr-3">
-                    <i class="fa-brands fa-html5 text-blue-600 dark:text-blue-400 text-sm"></i> 
+                  <div class="w-8 h-8 rounded-lg bg-orange-100 dark:bg-orange-800/40 flex items-center justify-center mr-3">
+                    <i class="fa-brands fa-html5 text-orange-600 dark:text-orange-400 text-sm"></i> 
                   </div>
                   <span class="font-medium">HTML</span>
                 </div>
@@ -172,11 +170,21 @@
                   <span class="font-medium">Node.js</span>
                 </div>
               </div>
-              
+
               <div class="tech-item bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 border-blue-200 dark:border-blue-800">
                 <div class="flex items-center">
                   <div class="w-8 h-8 rounded-lg bg-blue-100 dark:bg-blue-800/40 flex items-center justify-center mr-3">
-                    <i class="text-blue-600 dark:text-blue-400 text-sm">C#</i>
+                    <i class="text-blue-600 dark:text-blue-400 text-sm">TS</i>
+                  </div>
+                  <span class="font-medium">Typescript</span>
+                </div>
+              </div>
+              
+              
+              <div class="tech-item bg-gradient-to-br from-violet-50 to-blue-100 dark:from-violet-900/20 dark:to-blue-800/20 border-violet-200 dark:border-violet-800">
+                <div class="flex items-center">
+                  <div class="w-8 h-8 rounded-lg bg-violet-100 dark:bg-violet-800/40 flex items-center justify-center mr-3">
+                    <i class="text-violet-600 dark:text-violet-400 text-sm">C#</i>
                   </div>
                   <span class="font-medium">C#</span>
                 </div>
@@ -197,6 +205,15 @@
                     <i class="fab fa-php text-purple-600 dark:text-purple-400 text-sm"></i>
                   </div>
                   <span class="font-medium">PHP</span>
+                </div>
+              </div>
+
+              <div class="tech-item bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-900/20 dark:to-orange-800/20 border-orange-200 dark:border-orange-800">
+                <div class="flex items-center">
+                  <div class="w-8 h-8 rounded-lg bg-orange-100 dark:bg-orange-800/40 flex items-center justify-center mr-3">
+                    <i class="fa-brands fa-laravel text-orange-600 dark:text-orange-400 text-sm"></i>
+                  </div>
+                  <span class="font-medium">Laravel</span>
                 </div>
               </div>
               
@@ -714,58 +731,45 @@
     alert('View All Certifications: This would show all certifications.');
   }
 
-  // Initialize dark mode based on system preference
-  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+  // Initialize dark mode based on existing class or system preference
+  const dotEl = document.getElementById('dot');
+  if (document.documentElement.classList.contains('dark') || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
     document.documentElement.classList.add('dark');
-    document.getElementById('dot').style.transform = 'translateX(24px)';
+    if (dotEl) dotEl.style.transform = 'translateX(24px)';
+  } else {
+    if (dotEl) dotEl.style.transform = 'translateX(0)';
   }
 
   //Gallery
-  // Gallery Slider Variables
   let currentSlideIndex = 0;
-  const slideWidth = 272; // w-64 (256px) + gap-4 (16px)
-  const totalGallerySlides = 12; // Updated to 12 slides
+  let slideWidth = 0; // computed dynamically
   let slidesToShow = 3; // Number of slides visible at once
   const galleryTrack = document.getElementById('slider-track');
-  
-  // Calculate max slide position
-  function getMaxSlide() {
-    return Math.max(0, totalGallerySlides - slidesToShow);
+  const sliderIndicatorsContainer = document.querySelector('.flex.justify-center.gap-2.mt-6');
+
+  function getTotalSlides() {
+    return galleryTrack ? galleryTrack.children.length : 0;
   }
-  
-  // Update slider position
+
+  function getMaxSlide() {
+    return Math.max(0, getTotalSlides() - slidesToShow);
+  }
+
   function updateGallerySlider() {
-    const translateX = currentSlideIndex * slideWidth;
+    if (!galleryTrack) return;
+    const translateX = Math.round(currentSlideIndex * slideWidth);
     galleryTrack.style.transform = `translateX(-${translateX}px)`;
     updateGalleryIndicators();
   }
-  
-  // Update indicators
+
   function updateGalleryIndicators() {
-    const indicators = document.querySelectorAll('.flex.justify-center.gap-2.mt-6 div');
-    const totalIndicators = indicators.length;
+    if (!sliderIndicatorsContainer) return;
+    const indicators = Array.from(sliderIndicatorsContainer.children);
     const maxSlide = getMaxSlide();
-    
-    if (maxSlide === 0) {
-      // Only one indicator should be active if all slides fit
-      indicators.forEach((indicator, index) => {
-        indicator.classList.remove('bg-blue-500', 'dark:bg-blue-400');
-        indicator.classList.add('bg-zinc-300', 'dark:bg-zinc-700');
-        indicator.style.width = '8px';
-      });
-      if (indicators[0]) {
-        indicators[0].classList.remove('bg-zinc-300', 'dark:bg-zinc-700');
-        indicators[0].classList.add('bg-blue-500', 'dark:bg-blue-400');
-        indicators[0].style.width = '12px';
-      }
-      return;
-    }
-    
-    // Calculate which indicator should be active
-    const activeIndicator = Math.floor((currentSlideIndex / maxSlide) * (totalIndicators - 1));
-    
-    indicators.forEach((indicator, index) => {
-      if (index === activeIndicator) {
+    const active = Math.min(currentSlideIndex, maxSlide);
+
+    indicators.forEach((indicator, i) => {
+      if (i === active) {
         indicator.classList.remove('bg-zinc-300', 'dark:bg-zinc-700');
         indicator.classList.add('bg-blue-500', 'dark:bg-blue-400');
         indicator.style.width = '12px';
@@ -776,30 +780,58 @@
       }
     });
   }
-  
-  // Next slide function
+
+  function renderIndicators() {
+    if (!sliderIndicatorsContainer || !galleryTrack) return;
+    sliderIndicatorsContainer.innerHTML = '';
+    const maxSlide = getMaxSlide();
+    const count = maxSlide + 1;
+    for (let i = 0; i < count; i++) {
+      const dot = document.createElement('div');
+      dot.className = 'w-2 h-2 rounded-full';
+      dot.addEventListener('click', () => {
+        currentSlideIndex = i;
+        updateGallerySlider();
+      });
+      sliderIndicatorsContainer.appendChild(dot);
+    }
+  }
+
   function nextSlide() {
     const maxSlide = getMaxSlide();
     if (currentSlideIndex < maxSlide) {
       currentSlideIndex += 1;
     } else {
-      currentSlideIndex = 0; // Loop back to start
+      currentSlideIndex = 0;
     }
     updateGallerySlider();
   }
-  
-  // Previous slide function
+
   function prevSlide() {
     const maxSlide = getMaxSlide();
     if (currentSlideIndex > 0) {
       currentSlideIndex -= 1;
     } else {
-      currentSlideIndex = maxSlide; // Loop to end
+      currentSlideIndex = maxSlide;
     }
     updateGallerySlider();
   }
-  
-  // Adjust slides to show based on screen size
+
+  function computeDimensions() {
+    if (!galleryTrack) return;
+    const sliderContainer = galleryTrack.parentElement;
+    const containerWidth = sliderContainer.clientWidth;
+    const gap = parseFloat(getComputedStyle(galleryTrack).gap) || 16;
+    const slides = Array.from(galleryTrack.children);
+    slideWidth = Math.floor((containerWidth - gap * (slidesToShow - 1)) / slidesToShow);
+
+    slides.forEach((slide) => {
+      slide.style.flex = `0 0 ${slideWidth}px`;
+    });
+    // account for gap when translating
+    slideWidth = slideWidth + gap;
+  }
+
   function adjustSlidesToShow() {
     if (window.innerWidth < 640) { // Mobile
       slidesToShow = 1;
@@ -808,42 +840,32 @@
     } else { // Desktop
       slidesToShow = 3;
     }
-    
-    // Reset to first slide if current position is beyond new max
+    computeDimensions();
+    renderIndicators();
     const maxSlide = getMaxSlide();
-    if (currentSlideIndex > maxSlide) {
-      currentSlideIndex = maxSlide;
-    }
+    if (currentSlideIndex > maxSlide) currentSlideIndex = maxSlide;
     updateGallerySlider();
   }
-  
-  // Auto slide interval
+
   let galleryAutoSlide;
-  
   function startAutoSlide() {
-    galleryAutoSlide = setInterval(() => {
-      nextSlide();
-    }, 4000);
+    clearInterval(galleryAutoSlide);
+    galleryAutoSlide = setInterval(() => nextSlide(), 4000);
   }
-  
-  // Initialize gallery slider
+
   document.addEventListener('DOMContentLoaded', () => {
     adjustSlidesToShow();
-    updateGallerySlider();
     startAutoSlide();
-    
-    // Pause auto-slide on hover
-    const sliderContainer = document.querySelector('#slider-track').parentElement;
-    sliderContainer.addEventListener('mouseenter', () => {
-      clearInterval(galleryAutoSlide);
+
+    const sliderContainer = galleryTrack ? galleryTrack.parentElement : null;
+    if (sliderContainer) {
+      sliderContainer.addEventListener('mouseenter', () => clearInterval(galleryAutoSlide));
+      sliderContainer.addEventListener('mouseleave', () => startAutoSlide());
+    }
+
+    window.addEventListener('resize', () => {
+      adjustSlidesToShow();
     });
-    
-    sliderContainer.addEventListener('mouseleave', () => {
-      startAutoSlide();
-    });
-    
-    // Update on window resize
-    window.addEventListener('resize', adjustSlidesToShow);
   });
 </script>
 
