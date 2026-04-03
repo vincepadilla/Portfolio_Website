@@ -43,12 +43,16 @@
   </style>
 </head>
 
-<body class="bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-200 font-sans transition-colors duration-200">
+<body class="bg-zinc-100 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-200 font-sans transition-colors duration-300">
+
+<div class="background-glow bg-glow-1" aria-hidden="true"></div>
+<div class="background-glow bg-glow-2" aria-hidden="true"></div>
+<div class="background-glow bg-glow-3" aria-hidden="true"></div>
 
 <!-- Dark Mode Toggle with Icons -->
-<div class="fixed top-6 right-6 z-50">
+<div class="fixed top-5 right-5 sm:top-6 sm:right-6 z-50">
   <button onclick="toggleDark()"
-    class="w-12 h-6 rounded-full bg-zinc-300 dark:bg-zinc-700 relative transition-colors group">
+    class="w-12 h-6 rounded-full bg-white/50 dark:bg-zinc-800/70 border border-white/40 dark:border-white/15 backdrop-blur-xl relative transition-all duration-300 group shadow-[0_10px_24px_rgba(15,23,42,0.16)]">
     <span id="dot"
       class="absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-white dark:bg-zinc-900 transition-all duration-300 flex items-center justify-center">
     </span>
@@ -59,24 +63,31 @@
   </button>
 </div>
 
-<main class="max-w-6xl mx-auto px-4 py-10 space-y-10">
+<main class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-8 sm:space-y-10">
 
   <!-- HEADER -->
-  <section class="flex flex-col lg:flex-row gap-8 items-start">
+  <section class="glass-card section-hover flex flex-col lg:flex-row gap-6 sm:gap-8 items-start p-6 sm:p-8">
     <div class="relative">
-      <img src="src/profile.jpg" class="w-28 h-28 rounded-xl object-cover border border-zinc-200 dark:border-zinc-800"/>
+      <img
+        id="profile-image"
+        src="src/profile.jpg"
+        data-light-src="src/profilelightmode.png"
+        data-dark-src="src/profiledarkmode.png"
+        class="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl object-cover border border-white/30 dark:border-white/15 shadow-xl profile-image"
+        alt="Vince Padilla profile picture"
+      />
     </div>
 
     <div class="flex-1 space-y-4">
       <div>
-        <h1 class="text-3xl font-bold text-zinc-900 dark:text-white">Vince Padilla</h1>
+        <h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-900 dark:text-white">Vince Padilla</h1>
         
         <div class="mt-2 space-y-1">
           <p class="text-sm text-zinc-500 dark:text-zinc-400">
             Metro Manila, Philippines
           </p>
-          <p class="text-zinc-700 dark:text-zinc-300">
-            Web Developer
+          <p class="text-zinc-700 dark:text-zinc-300 text-base sm:text-lg">
+            Web & Mobile Developer 
           </p>
         </div>
       </div>
@@ -85,7 +96,7 @@
   </section>
 
   <!-- Horizontal Divider -->
-  <div class="h-px bg-gradient-to-r from-transparent via-zinc-300 dark:via-zinc-700 to-transparent"></div>
+  <div class="h-px bg-gradient-to-r from-transparent via-white/60 dark:via-white/20 to-transparent"></div>
 
   <!-- GRID -->
   <section class="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -94,7 +105,7 @@
     <div class="lg:col-span-2 space-y-8">
 
       <!-- ABOUT -->
-      <div class="border border-zinc-200 dark:border-zinc-800 rounded-xl p-6 bg-white dark:bg-zinc-900">
+      <div class="glass-card section-hover p-6 sm:p-7">
         <h2 class="text-lg font-semibold mb-4 text-zinc-900 dark:text-white">About</h2>
         <div class="space-y-4 text-zinc-600 dark:text-zinc-400">
           <p>
@@ -106,158 +117,49 @@
       </div>
 
       <!-- TECH STACK -->
-      <div class="border border-zinc-200 dark:border-zinc-800 rounded-xl p-6 bg-white dark:bg-zinc-900">
+      <div class="glass-card section-hover p-6 sm:p-7">
         <div class="flex items-center justify-between mb-6">
           <h2 class="text-xl font-semibold text-zinc-900 dark:text-white">Tech Stack</h2>
           <button onclick="viewAllTech()" 
-            class="text-sm text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-medium flex items-center gap-1 transition-colors">
+            class="text-sm text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-medium flex items-center gap-1 transition-all duration-300 hover:translate-x-0.5">
             View All <i class="fas fa-arrow-right text-xs mt-0.5"></i>
           </button>
         </div>
         
-        <div class="space-y-8">
+        <div class="space-y-7">
           <!-- Frontend -->
           <div>
-            <h3 class="font-semibold text-zinc-800 dark:text-zinc-300 mb-4 text-lg">Frontend</h3>
-            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
-              <div class="tech-item bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-900/20 dark:to-orange-800/20 border-orange-200 dark:border-orange-800">
-                <div class="flex items-center">
-                  <div class="w-8 h-8 rounded-lg bg-orange-100 dark:bg-orange-800/40 flex items-center justify-center mr-3">
-                    <i class="fa-brands fa-html5 text-orange-600 dark:text-orange-400 text-sm"></i> 
-                  </div>
-                  <span class="font-medium">HTML</span>
-                </div>
-              </div>
-
-              <div class="tech-item bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20 border-green-200 dark:border-green-800">
-                <div class="flex items-center">
-                  <div class="w-8 h-8 rounded-lg bg-green-100 dark:bg-green-800/40 flex items-center justify-center mr-3">
-                    <i class="fa-brands fa-css3-alt text-green-600 dark:text-green-400 text-sm"></i> 
-                  </div>
-                  <span class="font-medium">CSS</span>
-                </div>
-              </div>
-
-              <div class="tech-item bg-gradient-to-br from-yellow-50 to-yellow-100 dark:from-yellow-900/20 dark:to-yellow-800/20 border-yellow-200 dark:border-yellow-800">
-                <div class="flex items-center">
-                  <div class="w-8 h-8 rounded-lg bg-yellow-100 dark:bg-yellow-800/40 flex items-center justify-center mr-3">
-                    <i class="fab fa-js text-yellow-600 dark:text-yellow-400 text-sm"></i>
-                  </div>
-                  <span class="font-medium">Javascript</span>
-                </div>
-              </div>
-              
-              <div class="tech-item bg-gradient-to-br from-teal-50 to-teal-100 dark:from-teal-900/20 dark:to-teal-800/20 border-teal-200 dark:border-teal-800">
-                <div class="flex items-center">
-                  <div class="w-8 h-8 rounded-lg bg-teal-100 dark:bg-teal-800/40 flex items-center justify-center mr-3">
-                    <i class="fas fa-wind text-teal-600 dark:text-teal-400 text-sm"></i>
-                  </div>
-                  <span class="font-medium">Tailwind CSS</span>
-                </div>
-              </div>
+            <h3 class="font-semibold text-zinc-800 dark:text-zinc-300 mb-3 text-base">Frontend</h3>
+            <div class="flex flex-wrap gap-2.5">
+              <span class="stack-chip"><i class="fa-brands fa-html5 text-orange-500"></i><span>HTML</span></span>
+              <span class="stack-chip"><i class="fa-brands fa-css3-alt text-sky-500"></i><span>CSS</span></span>
+              <span class="stack-chip"><i class="fab fa-js text-yellow-500"></i><span>JavaScript</span></span>
+              <span class="stack-chip"><i class="fas fa-wind text-teal-500"></i><span>Tailwind CSS</span></span>
+              <span class="stack-chip"><i class="fa-brands fa-react text-blue-500"></i><span>React Js</span></span>
             </div>
           </div>
           
           <!-- Backend -->
           <div>
-            <h3 class="font-semibold text-zinc-800 dark:text-zinc-300 mb-4 text-lg">Backend</h3>
-            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
-              <div class="tech-item bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20 border-green-200 dark:border-green-800">
-                <div class="flex items-center">
-                  <div class="w-8 h-8 rounded-lg bg-green-100 dark:bg-green-800/40 flex items-center justify-center mr-3">
-                    <i class="fab fa-node-js text-green-600 dark:text-green-400 text-sm"></i>
-                  </div>
-                  <span class="font-medium">Node.js</span>
-                </div>
-              </div>
-
-              <div class="tech-item bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 border-blue-200 dark:border-blue-800">
-                <div class="flex items-center">
-                  <div class="w-8 h-8 rounded-lg bg-blue-100 dark:bg-blue-800/40 flex items-center justify-center mr-3">
-                    <i class="text-blue-600 dark:text-blue-400 text-sm">TS</i>
-                  </div>
-                  <span class="font-medium">Typescript</span>
-                </div>
-              </div>
-              
-              <div class="tech-item bg-gradient-to-br from-violet-50 to-blue-100 dark:from-violet-900/20 dark:to-blue-800/20 border-violet-200 dark:border-violet-800">
-                <div class="flex items-center">
-                  <div class="w-8 h-8 rounded-lg bg-violet-100 dark:bg-violet-800/40 flex items-center justify-center mr-3">
-                    <i class="text-violet-600 dark:text-violet-400 text-sm">C#</i>
-                  </div>
-                  <span class="font-medium">C#</span>
-                </div>
-              </div>
-
-              <div class="tech-item bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 border-blue-200 dark:border-blue-800">
-                <div class="flex items-center">
-                  <div class="w-8 h-8 rounded-lg bg-blue-100 dark:bg-blue-800/40 flex items-center justify-center mr-3">
-                    <i class="text-blue-600 dark:text-blue-400 text-sm">C++</i>
-                  </div>
-                  <span class="font-medium">C++</span>
-                </div>
-              </div>
-
-              <div class="tech-item bg-gradient-to-br from-yellow-50 to-yellow-100 dark:from-yellow-900/20 dark:to-yellow-800/20 border-yellow-200 dark:border-yellow-800">
-                <div class="flex items-center">
-                  <div class="w-8 h-8 rounded-lg bg-yellow-100 dark:bg-yellow-800/40 flex items-center justify-center mr-3">
-                    <i class="fa-brands fa-java text-yellow-600 dark:text-yellow-400 text-sm"></i> 
-                  </div>
-                  <span class="font-medium">Java</span>
-                </div>
-              </div>
-              
-              <div class="tech-item bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20 border-purple-200 dark:border-purple-800">
-                <div class="flex items-center">
-                  <div class="w-8 h-8 rounded-lg bg-purple-100 dark:bg-purple-800/40 flex items-center justify-center mr-3">
-                    <i class="fab fa-php text-purple-600 dark:text-purple-400 text-sm"></i>
-                  </div>
-                  <span class="font-medium">PHP</span>
-                </div>
-              </div>
-
-              <div class="tech-item bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-900/20 dark:to-orange-800/20 border-orange-200 dark:border-orange-800">
-                <div class="flex items-center">
-                  <div class="w-8 h-8 rounded-lg bg-orange-100 dark:bg-orange-800/40 flex items-center justify-center mr-3">
-                    <i class="fa-brands fa-laravel text-orange-600 dark:text-orange-400 text-sm"></i>
-                  </div>
-                  <span class="font-medium">Laravel</span>
-                </div>
-              </div>
-              
-              <div class="tech-item bg-gradient-to-br from-red-50 to-red-100 dark:from-red-900/20 dark:to-red-800/20 border-red-200 dark:border-red-800">
-                <div class="flex items-center">
-                  <div class="w-8 h-8 rounded-lg bg-red-100 dark:bg-red-800/40 flex items-center justify-center mr-3">
-                    <i class="text-red-600 dark:text-red-400 text-sm">FS</i>
-                  </div>
-                  <span class="font-medium">Firebase</span>
-                </div>
-              </div>
-              
-              <div class="tech-item bg-gradient-to-br from-indigo-50 to-indigo-100 dark:from-indigo-900/20 dark:to-indigo-800/20 border-indigo-200 dark:border-indigo-800">
-                <div class="flex items-center">
-                  <div class="w-8 h-8 rounded-lg bg-indigo-100 dark:bg-indigo-800/40 flex items-center justify-center mr-3">
-                    <i class="fas fa-database text-indigo-600 dark:text-indigo-400 text-sm"></i>
-                  </div>
-                  <span class="font-medium">MySQL</span>
-                </div>
-              </div>
-              
+            <h3 class="font-semibold text-zinc-800 dark:text-zinc-300 mb-3 text-base">Backend</h3>
+            <div class="flex flex-wrap gap-2.5">
+              <span class="stack-chip"><i class="fab fa-node-js text-green-500"></i><span>Node.js</span></span>
+              <span class="stack-chip"><i class="fa-solid fa-code text-blue-500"></i><span>TypeScript</span></span>
+              <span class="stack-chip"><span>C#</span></span>
+              <span class="stack-chip"><span>C++</span></span>
+              <span class="stack-chip"><i class="fa-brands fa-java text-amber-500"></i><span>Java</span></span>
+              <span class="stack-chip"><i class="fab fa-php text-purple-500"></i><span>PHP</span></span>
+              <span class="stack-chip"><i class="fa-brands fa-laravel text-orange-500"></i><span>Laravel</span></span>
+              <span class="stack-chip"><i class="fa-solid fa-fire text-red-500"></i><span>Firebase</span></span>
+              <span class="stack-chip"><i class="fas fa-database text-indigo-500"></i><span>MySQL</span></span>
             </div>
           </div>
           
-          <!-- DevOps & Cloud -->
+          <!-- Version Control -->
           <div>
-            <h3 class="font-semibold text-zinc-800 dark:text-zinc-300 mb-4 text-lg">DevOps & Cloud</h3>
-            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
-              <div class="tech-item bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800/20 dark:to-gray-700/20 border-gray-200 dark:border-gray-700">
-                <div class="flex items-center">
-                  <div class="w-8 h-8 rounded-lg bg-gray-100 dark:bg-gray-800/40 flex items-center justify-center mr-3">
-                    <i class="fab fa-github text-gray-600 dark:text-gray-400 text-sm"></i>
-                  </div>
-                  <span class="font-medium">GitHub Actions</span>
-                </div>
-              </div>
+            <h3 class="font-semibold text-zinc-800 dark:text-zinc-300 mb-3 text-base">Version Control</h3>
+            <div class="flex flex-wrap gap-2.5">
+              <span class="stack-chip"><i class="fab fa-github text-zinc-700 dark:text-zinc-200"></i><span>Git & GitHub</span></span>
             </div>
           </div>
         </div>
@@ -267,134 +169,76 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         
         <!-- RECENT PROJECTS -->
-        <div class="border border-zinc-200 dark:border-zinc-800 rounded-xl p-6 bg-white dark:bg-zinc-900">
-          <h2 class="text-lg font-semibold mb-6 text-zinc-900 dark:text-white">Recent Projects</h2>
+        <div class="glass-card section-hover p-6 sm:p-7">
+          <h2 class="text-lg font-semibold mb-4 text-zinc-900 dark:text-white">Recent Projects</h2>
           
-          <div class="space-y-6">
-            <!-- Project 1 -->
-            <div class="project-item">
-              <h4 class="font-medium text-zinc-900 dark:text-white mb-1">Golden Horizon</h4>
-              <p class="text-sm text-zinc-600 dark:text-zinc-400 mb-1">Java Based Hotel Reservation Project</p>
-              <!--
-              <div class="flex gap-2">
-                <a href="https://github.com/vince/golden-horizon" target="_blank" 
-                  class="inline-flex items-center gap-1 text-sm px-3 py-1.5 border border-zinc-300 dark:border-zinc-700 rounded-md hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors">
-                  <i class="fab fa-github"></i> Code
-                </a>
-                <a href="https://demo.goldenhorizon.com" target="_blank"
-                  class="inline-flex items-center gap-1 text-sm px-3 py-1.5 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">
-                  <i class="fas fa-external-link-alt"></i> Live Demo
-                </a>
-              </div> 
-              -->
-            </div>
-            
-            <!-- Project 2 -->
-            <div class="project-item">
-              <h4 class="font-medium text-zinc-900 dark:text-white mb-1">GMCAMSYS</h4>
-              <p class="text-sm text-zinc-600 dark:text-zinc-400 mb-1">Web-Based Showcasing Website</p>
-            <!--
-              <div class="flex gap-2">
-                <a href="https://github.com/vince/gmcamsys" target="_blank"
-                  class="inline-flex items-center gap-1 text-sm px-3 py-1.5 border border-zinc-300 dark:border-zinc-700 rounded-md hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors">
-                  <i class="fab fa-github"></i> Code
-                </a>
-                <a href="https://gmcamsys-demo.com" target="_blank"
-                  class="inline-flex items-center gap-1 text-sm px-3 py-1.5 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">
-                  <i class="fas fa-external-link-alt"></i> Live Demo
-                </a>
+          <div class="mini-list">
+            <div class="mini-item">
+              <div>
+                <div class="item-title">GMCAMSYS</div>
+                <div class="item-subtitle">Web-Based Showcasing Website</div>
               </div>
-            -->
+              
             </div>
-            
-            <!-- Project 3 -->
-            <div class="project-item">
-              <h4 class="font-medium text-zinc-900 dark:text-white mb-1">LDC-DENTSYS</h4>
-              <p class="text-sm text-zinc-600 dark:text-zinc-400 mb-1">Web-Based Dental Appointment System with AI Support</p>
-            <!--
-              <div class="flex gap-2">
-                <a href="https://github.com/vince/ldc-dentsys" target="_blank"
-                  class="inline-flex items-center gap-1 text-sm px-3 py-1.5 border border-zinc-300 dark:border-zinc-700 rounded-md hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors">
-                  <i class="fab fa-github"></i> Code
-                </a>
-                <a href="https://dentsys-demo.com" target="_blank"
-                  class="inline-flex items-center gap-1 text-sm px-3 py-1.5 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">
-                  <i class="fas fa-external-link-alt"></i> Live Demo
-                </a>
+            <div class="mini-item">
+              <div>
+                <div class="item-title">LDC-DENTSYS</div>
+                <div class="item-subtitle">Dental Appointment System with AI Support</div>
               </div>
-            -->
+             
             </div>
-            
-            <!-- Project 4 -->
-            <div class="project-item">
-              <h4 class="font-medium text-zinc-900 dark:text-white mb-1">TipidBuddy</h4>
-              <p class="text-sm text-zinc-600 dark:text-zinc-400 mb-1">Android-Based Java Savings and Expenses Tracker</p>
-              <!--
-              <div class="flex gap-2">
-                <a href="https://github.com/vince/tipidbuddy" target="_blank"
-                  class="inline-flex items-center gap-1 text-sm px-3 py-1.5 border border-zinc-300 dark:border-zinc-700 rounded-md hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors">
-                  <i class="fab fa-github"></i> Code
-                </a>
-                <a href="https://tipidbuddy-demo.com" target="_blank"
-                  class="inline-flex items-center gap-1 text-sm px-3 py-1.5 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">
-                  <i class="fas fa-external-link-alt"></i> Live Demo
-                </a>
+            <div class="mini-item">
+              <div>
+                <div class="item-title">TipidBuddy</div>
+                <div class="item-subtitle">Android Savings and Expenses Tracker</div>
               </div>
-              -->
+              
+            </div>
+            <div class="mini-item">
+              <div>
+                <div class="item-title">Gatepass Request & Management</div>
+                <div class="item-subtitle">Web-based system for DAP</div>
+              </div>
+              
             </div>
           </div>
           
           <button onclick="viewAllProjects()" 
-            class="mt-6 w-full py-3 border border-zinc-300 dark:border-zinc-700 rounded-lg text-sm font-medium hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors">
+            class="glass-button mt-5 w-full py-2.5 rounded-xl text-sm font-medium">
             View All
           </button>
         </div>
 
         <!-- RECENT CERTIFICATIONS -->
-        <div class="border border-zinc-200 dark:border-zinc-800 rounded-xl p-6 bg-white dark:bg-zinc-900">
-          <h2 class="text-lg font-semibold mb-6 text-zinc-900 dark:text-white">Recent Certifications</h2>
+        <div class="glass-card section-hover p-6 sm:p-7">
+          <h2 class="text-lg font-semibold mb-4 text-zinc-900 dark:text-white">Recent Certifications</h2>
           
-          <div class="space-y-6">
-            <!-- Certification 1 -->
-            <a href="#"
-              class="certification-item block p-4 rounded-lg border border-transparent hover:border-blue-300 dark:hover:border-blue-700 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all duration-300 hover:shadow-md cursor-pointer group">
-              <div class="flex items-start justify-between">
-                <div>
-                  <h4 class="font-medium text-zinc-900 dark:text-white mb-1 group-hover:text-blue-700 dark:group-hover:text-blue-300">Dean Lister</h4>
-                  <p class="text-sm text-zinc-600 dark:text-zinc-400">University of Makati</p>
-                </div>
-                <i class="fas fa-external-link-alt text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity mt-1"></i>
+          <div class="mini-list">
+            <a href="#" class="mini-item group">
+              <div>
+                <div class="item-title group-hover:text-blue-600 dark:group-hover:text-blue-400">Dean Lister</div>
+                <div class="item-subtitle">University of Makati</div>
               </div>
+             
             </a>
-            
-            <!-- Certification 2 -->
-            <a href="#"
-              class="certification-item block p-4 rounded-lg border border-transparent hover:border-blue-300 dark:hover:border-blue-700 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all duration-300 hover:shadow-md cursor-pointer group">
-              <div class="flex items-start justify-between">
-                <div>
-                  <h4 class="font-medium text-zinc-900 dark:text-white mb-1 group-hover:text-blue-700 dark:group-hover:text-blue-300">Infotech Olympics 2025</h4>
-                  <p class="text-sm text-zinc-600 dark:text-zinc-400">University of Makati</p>
-                </div>
-                <i class="fas fa-external-link-alt text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity mt-1"></i>
+            <a href="#" class="mini-item group">
+              <div>
+                <div class="item-title group-hover:text-blue-600 dark:group-hover:text-blue-400">Infotech Olympics 2025</div>
+                <div class="item-subtitle">University of Makati</div>
               </div>
+              
             </a>
-            
-            <!-- Certification 3 -->
-            <a href="#"
-              class="certification-item block p-4 rounded-lg border border-transparent hover:border-blue-300 dark:hover:border-blue-700 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all duration-300 hover:shadow-md cursor-pointer group">
-              <div class="flex items-start justify-between">
-                <div>
-                  <h4 class="font-medium text-zinc-900 dark:text-white mb-1 group-hover:text-blue-700 dark:group-hover:text-blue-300">IT 14th Skills Olympics 2025</h4>
-                  <p class="text-sm text-zinc-600 dark:text-zinc-400">University of Makati</p>
-                </div>
-                <i class="fas fa-external-link-alt text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity mt-1"></i>
+            <a href="#" class="mini-item group">
+              <div>
+                <div class="item-title group-hover:text-blue-600 dark:group-hover:text-blue-400">IT 14th Skills Olympics 2025</div>
+                <div class="item-subtitle">University of Makati</div>
               </div>
+              
             </a>
-            
           </div>
           
           <button onclick="viewAllCertifications()" 
-            class="mt-6 w-full py-3 border border-zinc-300 dark:border-zinc-700 rounded-lg text-sm font-medium hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors">
+            class="glass-button mt-5 w-full py-2.5 rounded-xl text-sm font-medium">
             View All
           </button>
         </div>
@@ -407,7 +251,7 @@
     <div class="space-y-8">
 
       <!-- SEMINARS (IN RIGHT COLUMN) -->
-      <div class="border border-zinc-200 dark:border-zinc-800 rounded-xl p-6 bg-white dark:bg-zinc-900">
+      <div class="glass-card section-hover p-6 sm:p-7">
         <h2 class="text-lg font-semibold mb-6 text-zinc-900 dark:text-white">Seminars</h2>
         
         <div class="space-y-6">
@@ -448,11 +292,11 @@
       </div>
 
        <!-- CONNECT -->
-      <div class="border border-zinc-200 dark:border-zinc-800 rounded-xl p-6 bg-white dark:bg-zinc-900">
+      <div class="glass-card section-hover p-6 sm:p-7">
         <h2 class="text-lg font-semibold mb-4 text-zinc-900 dark:text-white">Connect</h2>
         <div class="space-y-3">
           <button onclick="sendEmail()" 
-            class="w-full py-3 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 rounded-lg text-sm font-medium hover:opacity-90 transition-opacity flex items-center justify-center">
+            class="w-full py-3 rounded-xl text-sm font-medium transition-all duration-300 flex items-center justify-center text-white bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-400 hover:to-indigo-400 hover:shadow-[0_12px_30px_rgba(59,130,246,0.38)] hover:-translate-y-0.5">
             <i class="fas fa-envelope mr-2"></i> Send Email
           </button>
         </div>
@@ -477,17 +321,17 @@
 
 <!-- GALLERY SECTION -->
 <section class="mt-12">
-  <div class="p-6">
+  <div class="glass-card section-hover p-6 sm:p-7">
     
     <!-- Slider Section -->
-    <div class="mt-8 pt-8 border-t border-zinc-200 dark:border-zinc-800">
+    <div class="mt-2 pt-2">
       <div class="flex items-center justify-between mb-6">
         <h3 class="text-xl font-semibold text-zinc-900 dark:text-white">Gallery</h3>
         <div class="flex gap-2">
-          <button onclick="prevSlide()" class="p-2 rounded-lg border border-zinc-300 dark:border-zinc-700 hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors">
+          <button onclick="prevSlide()" class="glass-button p-2.5 rounded-xl transition-all duration-300 hover:scale-105">
             <i class="fas fa-chevron-left"></i>
           </button>
-          <button onclick="nextSlide()" class="p-2 rounded-lg border border-zinc-300 dark:border-zinc-700 hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors">
+          <button onclick="nextSlide()" class="glass-button p-2.5 rounded-xl transition-all duration-300 hover:scale-105">
             <i class="fas fa-chevron-right"></i>
           </button>
         </div>
@@ -593,8 +437,8 @@
 </main>
 
 <!-- Contact Modal -->
-<div id="contact-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/50">
-  <div class="bg-white dark:bg-zinc-900 rounded-lg w-11/12 sm:w-96 p-6">
+<div id="contact-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-zinc-950/45 backdrop-blur-sm px-4">
+  <div class="glass-card w-full max-w-md p-6 sm:p-7">
 
     <h3 class="text-lg font-semibold text-zinc-900 dark:text-white mb-4">
       Get in Touch
@@ -609,8 +453,8 @@
         name="name"
         placeholder="Your name"
         required
-        class="w-full px-3 py-2 border border-zinc-200 dark:border-zinc-700 rounded-md
-               bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-200"
+        class="w-full px-3 py-2.5 border border-white/40 dark:border-white/15 rounded-lg
+               bg-white/70 dark:bg-zinc-900/70 backdrop-blur-md text-zinc-900 dark:text-zinc-200 outline-none focus:ring-2 focus:ring-blue-500/40"
       />
 
       <input
@@ -618,8 +462,8 @@
         name="email"
         placeholder="Your email"
         required
-        class="w-full px-3 py-2 border border-zinc-200 dark:border-zinc-700 rounded-md
-               bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-200"
+        class="w-full px-3 py-2.5 border border-white/40 dark:border-white/15 rounded-lg
+               bg-white/70 dark:bg-zinc-900/70 backdrop-blur-md text-zinc-900 dark:text-zinc-200 outline-none focus:ring-2 focus:ring-blue-500/40"
       />
 
       <textarea
@@ -627,23 +471,22 @@
         rows="4"
         placeholder="Your message"
         required
-        class="w-full px-3 py-2 border border-zinc-200 dark:border-zinc-700 rounded-md
-               bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-200"
+        class="w-full px-3 py-2.5 border border-white/40 dark:border-white/15 rounded-lg
+               bg-white/70 dark:bg-zinc-900/70 backdrop-blur-md text-zinc-900 dark:text-zinc-200 outline-none focus:ring-2 focus:ring-blue-500/40"
       ></textarea>
 
       <div class="flex justify-end gap-2 pt-2">
         <button
           type="button"
           onclick="closeContactModal()"
-          class="px-4 py-2 rounded-md border border-zinc-300 dark:border-zinc-700
-                 bg-white dark:bg-zinc-900 text-zinc-700 dark:text-zinc-200"
+          class="glass-button px-4 py-2 rounded-lg text-zinc-700 dark:text-zinc-200"
         >
           Cancel
         </button>
 
         <button
           type="submit"
-          class="px-4 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition"
+          class="px-4 py-2 rounded-lg bg-gradient-to-r from-blue-500 to-indigo-500 text-white hover:from-blue-400 hover:to-indigo-400 transition-all duration-300 hover:shadow-[0_12px_30px_rgba(59,130,246,0.38)]"
         >
           Send Message
         </button>
@@ -654,13 +497,177 @@
 </div>
 
 <!-- Footer -->
-<footer class="max-w-6xl mx-auto px-4 py-6 border-t border-zinc-200 dark:border-zinc-800 mt-12">
+<footer class="max-w-6xl mx-auto px-4 sm:px-6 py-7 mt-12 border-t border-white/35 dark:border-white/10">
   <div class="text-center text-zinc-500 dark:text-zinc-400 text-sm">
     © 2025 Vince Padilla. All rights reserved.
   </div>
 </footer>
 
 <style>
+  .background-glow {
+    position: fixed;
+    border-radius: 9999px;
+    filter: blur(80px);
+    opacity: 0.38;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .bg-glow-1 {
+    width: 260px;
+    height: 260px;
+    top: 6%;
+    left: -50px;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.55), rgba(99, 102, 241, 0));
+  }
+
+  .bg-glow-2 {
+    width: 320px;
+    height: 320px;
+    top: 35%;
+    right: -90px;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.4), rgba(16, 185, 129, 0));
+  }
+
+  .bg-glow-3 {
+    width: 270px;
+    height: 270px;
+    bottom: 2%;
+    left: 30%;
+    background: radial-gradient(circle, rgba(236, 72, 153, 0.35), rgba(236, 72, 153, 0));
+  }
+
+  .glass-card {
+    background: linear-gradient(
+      140deg,
+      rgba(255, 255, 255, 0.64),
+      rgba(255, 255, 255, 0.36)
+    );
+    border: 1px solid rgba(255, 255, 255, 0.42);
+    border-radius: 1rem;
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    box-shadow:
+      0 16px 35px rgba(15, 23, 42, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  }
+
+  .dark .glass-card {
+    background: linear-gradient(
+      140deg,
+      rgba(39, 39, 42, 0.62),
+      rgba(24, 24, 27, 0.5)
+    );
+    border-color: rgba(255, 255, 255, 0.11);
+    box-shadow:
+      0 18px 45px rgba(2, 6, 23, 0.45),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  }
+
+  /* Light mode: make glass more translucent and frosted */
+  html:not(.dark) .glass-card {
+    background: linear-gradient(
+      140deg,
+      rgba(255, 255, 255, 0.52),
+      rgba(255, 255, 255, 0.26)
+    );
+    border-color: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow:
+      0 20px 40px rgba(15, 23, 42, 0.10),
+      inset 0 1px 0 rgba(255, 255, 255, 0.45);
+  }
+
+  html:not(.dark) .section-hover:hover {
+    box-shadow:
+      0 26px 54px rgba(37, 99, 235, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  }
+
+  .section-hover {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+  }
+
+  .section-hover::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    background: linear-gradient(120deg, rgba(59, 130, 246, 0.15), rgba(236, 72, 153, 0.08), rgba(16, 185, 129, 0.14));
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+  }
+
+  .section-hover:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      0 20px 44px rgba(59, 130, 246, 0.14),
+      inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  }
+
+  .section-hover:hover::before {
+    opacity: 1;
+  }
+
+  .glass-button {
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: all 0.3s ease;
+  }
+
+  .dark .glass-button {
+    border-color: rgba(255, 255, 255, 0.14);
+    background: rgba(39, 39, 42, 0.48);
+  }
+
+  .glass-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.15);
+  }
+
+  .stack-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.7rem;
+    border-radius: 9999px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: rgb(39 39 42);
+    background: rgba(255, 255, 255, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: transform 0.2s ease, box-shadow 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+  }
+
+  .dark .stack-chip {
+    color: rgb(229 229 229);
+    background: rgba(39, 39, 42, 0.55);
+    border-color: rgba(255, 255, 255, 0.12);
+  }
+
+  .stack-chip:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 12px 24px rgba(15, 23, 42, 0.18);
+  }
+
+  .profile-image {
+    transition: opacity 0.35s ease, transform 0.35s ease, filter 0.35s ease;
+    opacity: 1;
+  }
+
+  .profile-image.is-switching {
+    opacity: 0.28;
+    transform: scale(0.985);
+    filter: saturate(0.9) brightness(0.95);
+  }
+
   .tech-item {
     padding-left: 1rem;
     padding-right: 1rem;
@@ -672,8 +679,8 @@
   }
   
   .tech-item:hover {
-    transform: scale(1.02);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: 0 14px 30px -10px rgba(59, 130, 246, 0.35);
     cursor: pointer;
   }
 
@@ -711,12 +718,18 @@
   .project-item {
     padding-bottom: 1.5rem;
     border-bottom: 1px solid rgb(244 244 245);
+    transition: all 0.3s ease;
   }
   
   .dark .project-item {
     border-bottom-color: rgb(39 39 42);
   }
   
+  .project-item:hover {
+    transform: translateX(2px);
+    border-bottom-color: rgb(125 211 252);
+  }
+
   .project-item:last-child {
     border-bottom: 0;
     padding-bottom: 0;
@@ -725,6 +738,7 @@
   .certification-item {
     padding-bottom: 1.5rem;
     border-bottom: 1px solid rgb(244 244 245);
+    background: transparent;
   }
   
   .dark .certification-item {
@@ -734,6 +748,59 @@
   .certification-item:last-child {
     border-bottom: 0;
     padding-bottom: 0;
+  }
+
+  /* Minimal lists (projects/certifications) */
+  .mini-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .mini-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.6rem 0.25rem;
+    border-radius: 0.75rem;
+    transition: background 0.25s ease, transform 0.25s ease;
+  }
+
+  .mini-item:hover {
+    background: rgba(255, 255, 255, 0.45);
+    transform: translateX(2px);
+  }
+
+  .dark .mini-item:hover {
+    background: rgba(39, 39, 42, 0.5);
+  }
+
+  .mini-item .item-title {
+    font-weight: 600;
+    color: rgb(24 24 27);
+  }
+
+  .dark .mini-item .item-title {
+    color: rgb(244 244 245);
+  }
+
+  .mini-item .item-subtitle {
+    font-size: 0.85rem;
+    color: rgb(113 113 122);
+  }
+
+  .dark .mini-item .item-subtitle {
+    color: rgb(161 161 170);
+  }
+
+  .mini-caret {
+    opacity: 0.6;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+
+  .mini-item:hover .mini-caret {
+    transform: translateX(2px);
+    opacity: 0.9;
   }
 
   .aspect-square {
@@ -773,18 +840,54 @@
   }
   
   .w-64 > div:hover {
-    transform: scale(1.05);
+    transform: scale(1.04);
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.3);
+  }
+
+  @media (max-width: 640px) {
+    .background-glow {
+      opacity: 0.25;
+      filter: blur(65px);
+    }
+
+    .glass-card {
+      border-radius: 0.9rem;
+    }
+
+    .section-hover:hover {
+      transform: none;
+    }
   }
 </style>
 
 <script>
+  const profileImage = document.getElementById('profile-image');
+
+  function updateProfileImageByTheme(isDarkMode) {
+    if (!profileImage) return;
+
+    const targetSrc = isDarkMode
+      ? profileImage.dataset.darkSrc
+      : profileImage.dataset.lightSrc;
+
+    if (!targetSrc || profileImage.getAttribute('src') === targetSrc) return;
+
+    profileImage.classList.add('is-switching');
+    setTimeout(() => {
+      profileImage.setAttribute('src', targetSrc);
+      profileImage.classList.remove('is-switching');
+    }, 180);
+  }
+
   // Dark Mode Toggle
   function toggleDark() {
     const html = document.documentElement;
     html.classList.toggle('dark');
+    const isDark = html.classList.contains('dark');
+    updateProfileImageByTheme(isDark);
     
     const dot = document.getElementById('dot');
-    if (html.classList.contains('dark')) {
+    if (isDark) {
       dot.style.transform = 'translateX(24px)';
     } else {
       dot.style.transform = 'translateX(0)';
@@ -890,8 +993,10 @@
   const dotEl = document.getElementById('dot');
   if (document.documentElement.classList.contains('dark') || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
     document.documentElement.classList.add('dark');
+    updateProfileImageByTheme(true);
     if (dotEl) dotEl.style.transform = 'translateX(24px)';
   } else {
+    updateProfileImageByTheme(false);
     if (dotEl) dotEl.style.transform = 'translateX(0)';
   }
 
