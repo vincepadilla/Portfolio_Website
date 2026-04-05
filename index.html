@@ -287,6 +287,17 @@
               <span class="year-badge">2025</span>
             </div>
           </div>
+
+          <!-- Seminar 4 -->
+          <div class="experience-item">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="font-medium text-zinc-900 dark:text-white">Build with AI Manila 2026: Beyond the Prompt</h3>
+                <p class="text-sm text-zinc-500 dark:text-zinc-400 mt-1">Google Developer Groups - Accenture People Hub</p>
+              </div>
+              <span class="year-badge">2026</span>
+            </div>
+          </div>
           
         </div>
       </div>
@@ -471,7 +482,7 @@
 <!-- Footer -->
 <footer class="max-w-6xl mx-auto px-4 sm:px-6 py-7 mt-12 border-t border-white/35 dark:border-white/10">
   <div class="text-center text-zinc-500 dark:text-zinc-400 text-sm">
-    © 2025 Vince Padilla. All rights reserved.
+    © <span id="year"></span> Vince Padilla. All rights reserved.
   </div>
 </footer>
 
@@ -833,6 +844,8 @@
 </style>
 
 <script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+
   const profileImage = document.getElementById('profile-image');
 
   function updateProfileImageByTheme(isDarkMode) {
