@@ -70,9 +70,8 @@
     <div class="relative">
       <img
         id="profile-image"
-        src="src/profile.jpg"
-        data-light-src="src/profilelightmode.png"
-        data-dark-src="src/profiledarkmode.png"
+        data-light-src="src/profilelight.webp"
+        data-dark-src="src/profiledark.webp"
         class="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl object-cover border border-white/30 dark:border-white/15 shadow-xl profile-image"
         alt="Vince Padilla profile picture"
       />
@@ -349,63 +348,97 @@
       </div>
       
       <!-- Slider Container -->
-      <div class="relative overflow-hidden rounded-xl">
-        <!-- Slider Track -->
-        <div id="slider-track" class="flex transition-transform duration-500 ease-in-out gap-4">
-          <!-- Slide 1: Project 6 -->
-          <div class="w-64 flex-shrink-0">
-            <div class="h-48 rounded-lg overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-gradient-to-br from-indigo-500 to-indigo-600 flex items-center justify-center">
-              <img src="src/Gallery/DSCF0983.jpg" alt="Gallery 1" class="w-full h-full object-cover">
-            </div>
-          </div>
-          
-          <div class="w-64 flex-shrink-0">
-            <div class="h-48 rounded-lg overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-gradient-to-br from-teal-500 to-teal-600 flex items-center justify-center">
-              <img src="src/Gallery/image13.jpg" alt="Gallery 2" class="w-full h-full object-cover">
-            </div>
-          </div>
-          
-          <!-- Slide 3: Project 8 -->
-          <div class="w-64 flex-shrink-0">
-            <div class="h-48 rounded-lg overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-gradient-to-br from-rose-500 to-rose-600 flex items-center justify-center">
-              <img src="src/Gallery/image3.jpeg" alt="Gallery 3" class="w-full h-full object-cover">
-            </div>
-          </div>
-          
-          <!-- Slide 5: Project 10 -->
-          <div class="w-64 flex-shrink-0">
-            <div class="h-48 rounded-lg overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-gradient-to-br from-lime-500 to-lime-600 flex items-center justify-center">
-              <img src="src/Gallery/image5.jpg" alt="Gallery 5" class="w-full h-full object-cover">
-            </div>
-          </div>
-          
-          <!-- Slide 6: Project 11 -->
-          <div class="w-64 flex-shrink-0">
-            <div class="h-48 rounded-lg overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-gradient-to-br from-cyan-500 to-cyan-600 flex items-center justify-center">
-              <img src="src/Gallery/image6.jpg" alt="Gallery 6" class="w-full h-full object-cover">
-            </div>
-          </div>
+    <div class="relative overflow-hidden rounded-xl">
+      <!-- Slider Track -->
+      <div id="slider-track" class="flex transition-transform duration-500 ease-in-out gap-4">
 
-          <div class="w-64 flex-shrink-0">
-            <div class="h-48 rounded-lg overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-gradient-to-br from-violet-500 to-violet-600 flex items-center justify-center">
-              <img src="src/Gallery/image9.jpg" alt="Gallery 9" class="w-full h-full object-cover">
-            </div>
+        <!-- Slide 1 (PRIORITY LOAD) -->
+        <div class="w-64 flex-shrink-0">
+          <div class="h-48 rounded-lg overflow-hidden border border-zinc-200 dark:border-zinc-800 flex items-center justify-center">
+            <img 
+              src="src/Gallery/DSCF0983.webp?v=1"
+              alt="Gallery 1"
+              class="w-full h-full object-cover"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+              width="256"
+              height="192">
           </div>
-
-          <div class="w-64 flex-shrink-0">
-            <div class="h-48 rounded-lg overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-gradient-to-br from-violet-500 to-violet-600 flex items-center justify-center">
-              <img src="src/Gallery/image11.jpg" alt="Gallery 11" class="w-full h-full object-cover">
-            </div>
-          </div>
-
-          <div class="w-64 flex-shrink-0">
-            <div class="h-48 rounded-lg overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-gradient-to-br from-violet-500 to-violet-600 flex items-center justify-center">
-              <img src="src/Gallery/image12.jpg" alt="Gallery 12" class="w-full h-full object-cover">
-            </div>
-          </div>
-
         </div>
+
+        <!-- Slide 2 -->
+        <div class="w-64 flex-shrink-0">
+          <div class="h-48 rounded-lg overflow-hidden border border-zinc-200 dark:border-zinc-800 flex items-center justify-center">
+            <img 
+              src="src/Gallery/image13.webp?v=1"
+              alt="Gallery 2"
+              class="w-full h-full object-cover"
+              loading="lazy"
+              decoding="async"
+              width="256"
+              height="192">
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="w-64 flex-shrink-0">
+          <div class="h-48 rounded-lg overflow-hidden border border-zinc-200 dark:border-zinc-800 flex items-center justify-center">
+            <img 
+              src="src/Gallery/googlepic.webp?v=1"
+              alt="Gallery 3"
+              class="w-full h-full object-cover"
+              loading="lazy"
+              decoding="async"
+              width="256"
+              height="192">
+          </div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="w-64 flex-shrink-0">
+          <div class="h-48 rounded-lg overflow-hidden border border-zinc-200 dark:border-zinc-800 flex items-center justify-center">
+            <img 
+              src="src/Gallery/image5.webp?v=1"
+              alt="Gallery 5"
+              class="w-full h-full object-cover"
+              loading="lazy"
+              decoding="async"
+              width="256"
+              height="192">
+          </div>
+        </div>
+
+        <!-- Slide 5 -->
+        <div class="w-64 flex-shrink-0">
+          <div class="h-48 rounded-lg overflow-hidden border border-zinc-200 dark:border-zinc-800 flex items-center justify-center">
+            <img 
+              src="src/Gallery/image11.webp?v=1"
+              alt="Gallery 11"
+              class="w-full h-full object-cover"
+              loading="lazy"
+              decoding="async"
+              width="256"
+              height="192">
+          </div>
+        </div>
+
+        <!-- Slide 6 -->
+        <div class="w-64 flex-shrink-0">
+          <div class="h-48 rounded-lg overflow-hidden border border-zinc-200 dark:border-zinc-800 flex items-center justify-center">
+            <img 
+              src="src/Gallery/image12.webp?v=1"
+              alt="Gallery 12"
+              class="w-full h-full object-cover"
+              loading="lazy"
+              decoding="async"
+              width="256"
+              height="192">
+          </div>
+        </div>
+
       </div>
+    </div>
       
       <!-- Slider Indicators -->
       <div class="flex justify-center gap-2 mt-6">
