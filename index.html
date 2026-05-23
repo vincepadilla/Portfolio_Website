@@ -3,14 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0f172a" />
   <title>Vince Padilla – Portfolio</title>
 
-  <script src="https://cdn.tailwindcss.com"></script>
-
+  <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
+  <link rel="dns-prefetch" href="//cdn.tailwindcss.com">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
 
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preload" as="image" href="src/profilelight.webp" fetchpriority="high">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <script>
@@ -70,8 +77,14 @@
     <div class="relative">
       <img
         id="profile-image"
+        src="src/profilelight.webp"
         data-light-src="src/profilelight.webp"
         data-dark-src="src/profiledark.webp"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+        width="128"
+        height="128"
         class="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl object-cover border border-white/30 dark:border-white/15 shadow-xl profile-image"
         alt="Vince Padilla profile picture"
       />
@@ -1245,7 +1258,7 @@
     gmcamsys: {
       title: 'GM-STUDIO',
       subtitle: 'Web-Based Services Showcasing Website',
-      description: 'A modern portfolio and showcase website built to present your projects, case studies, and key achievements with polished animations and responsive layouts.',
+      description: 'A modern showcasing website for a photo studio business, featuring their services, pricing, photography portfolio, and memorable client moments',
       image: 'src/projects/gmcamera.png?v=1',
       tech: [
         { label: 'HTML', icon: 'fa-brands fa-html5 text-orange-500' },
@@ -1680,6 +1693,14 @@
       adjustSlidesToShow();
     });
   });
+</script>
+
+<script>
+  if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js').catch(() => {});
+    });
+  }
 </script>
 
 </body>
