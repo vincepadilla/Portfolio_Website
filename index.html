@@ -119,10 +119,6 @@
       <div class="glass-card section-hover p-6 sm:p-7">
         <div class="flex items-center justify-between mb-6">
           <h2 class="text-xl font-semibold text-zinc-900 dark:text-white">Tech Stack</h2>
-          <button onclick="viewAllTech()" 
-            class="text-sm text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-medium flex items-center gap-1 transition-all duration-300 hover:translate-x-0.5">
-            View All <i class="fas fa-arrow-right text-xs mt-0.5"></i>
-          </button>
         </div>
         
         <div class="space-y-7">
@@ -172,40 +168,29 @@
           <h2 class="text-lg font-semibold mb-4 text-zinc-900 dark:text-white">Recent Projects</h2>
           
           <div class="mini-list">
-            <div class="mini-item">
+            <button type="button" class="mini-item group project-trigger" data-project="gmcamsys">
               <div>
-                <div class="item-title">GMCAMSYS</div>
-                <div class="item-subtitle">Web-Based Showcasing Website</div>
+                <div class="item-title">GM-STUDIO</div>
+                <div class="item-subtitle">Web-Based Services Showcasing Website</div>
               </div>
-              
-            </div>
-            <div class="mini-item">
+            </button>
+
+            <button type="button" class="mini-item group project-trigger" data-project="ldcdentsys">
               <div>
                 <div class="item-title">LDC-DENTSYS</div>
                 <div class="item-subtitle">Dental Appointment System with AI Support</div>
               </div>
-             
-            </div>
-            <div class="mini-item">
-              <div>
-                <div class="item-title">TipidBuddy</div>
-                <div class="item-subtitle">Android Savings and Expenses Tracker</div>
-              </div>
-              
-            </div>
-            <div class="mini-item">
+            </button>
+            
+            <button type="button" class="mini-item group project-trigger" data-project="gatepass">
               <div>
                 <div class="item-title">Gatepass Request & Management</div>
                 <div class="item-subtitle">Web-Based System for Development Academy of the Philippines</div>
               </div>
-              
-            </div>
+            </button>
           </div>
           
-          <button onclick="viewAllProjects()" 
-            class="glass-button mt-5 w-full py-2.5 rounded-xl text-sm font-medium">
-            View All
-          </button>
+          
         </div>
 
         <!-- RECENT CERTIFICATIONS -->
@@ -213,33 +198,29 @@
           <h2 class="text-lg font-semibold mb-4 text-zinc-900 dark:text-white">Recent Certifications</h2>
           
           <div class="mini-list">
-            <a href="#" class="mini-item group">
+            <button type="button" class="mini-item group cert-trigger" data-cert="dean-lister">
               <div>
                 <div class="item-title group-hover:text-blue-600 dark:group-hover:text-blue-400">Dean Lister</div>
                 <div class="item-subtitle">University of Makati</div>
               </div>
-             
-            </a>
-            <a href="#" class="mini-item group">
+            </button>
+
+            <button type="button" class="mini-item group cert-trigger" data-cert="infotech-2025">
               <div>
                 <div class="item-title group-hover:text-blue-600 dark:group-hover:text-blue-400">Infotech Olympics 2025</div>
                 <div class="item-subtitle">University of Makati</div>
               </div>
-              
-            </a>
-            <a href="#" class="mini-item group">
+            </button>
+
+            <button type="button" class="mini-item group cert-trigger" data-cert="skills-2025">
               <div>
                 <div class="item-title group-hover:text-blue-600 dark:group-hover:text-blue-400">IT 14th Skills Olympics 2025</div>
                 <div class="item-subtitle">University of Makati</div>
               </div>
-              
-            </a>
+            </button>
           </div>
           
-          <button onclick="viewAllCertifications()" 
-            class="glass-button mt-5 w-full py-2.5 rounded-xl text-sm font-medium">
-            View All
-          </button>
+          
         </div>
 
       </div>
@@ -258,28 +239,6 @@
           <div class="experience-item">
             <div class="flex justify-between items-start">
               <div>
-                <h3 class="font-medium text-zinc-900 dark:text-white">Ethical Hacking on Web Applications for Students</h3>
-                <p class="text-sm text-zinc-500 dark:text-zinc-400 mt-1">University of Makati</p>
-              </div>
-              <span class="year-badge">2024</span>
-            </div>
-          </div>
-
-          <!-- Seminar 2 -->
-          <div class="experience-item">
-            <div class="flex justify-between items-start">
-              <div>
-                <h3 class="font-medium text-zinc-900 dark:text-white">Python Seminar-Workshop</h3>
-                <p class="text-sm text-zinc-500 dark:text-zinc-400 mt-1">University of Makati</p>
-              </div>
-              <span class="year-badge">2024</span>
-            </div>
-          </div>
-
-          <!-- Seminar 3 -->
-          <div class="experience-item">
-            <div class="flex justify-between items-start">
-              <div>
                 <h3 class="font-medium text-zinc-900 dark:text-white">CCIS Quantum Computing and BIP-360</h3>
                 <p class="text-sm text-zinc-500 dark:text-zinc-400 mt-1">University of Makati</p>
               </div>
@@ -287,7 +246,7 @@
             </div>
           </div>
 
-          <!-- Seminar 4 -->
+          <!-- Seminar 2 -->
           <div class="experience-item">
             <div class="flex justify-between items-start">
               <div>
@@ -298,7 +257,7 @@
             </div>
           </div>
 
-          <!-- Seminar 5 -->
+          <!-- Seminar 3 -->
           <div class="experience-item">
             <div class="flex justify-between items-start">
               <div>
@@ -410,7 +369,7 @@
         <div class="w-64 flex-shrink-0">
           <div class="h-48 rounded-lg overflow-hidden border border-zinc-200 dark:border-zinc-800 flex items-center justify-center">
             <img 
-              src="src/Gallery/image5.webp?v=1"
+              src="src/Gallery/webdesign.webp?v=1"
               alt="Gallery 5"
               class="w-full h-full object-cover"
               loading="lazy"
@@ -491,8 +450,8 @@
 </main>
 
 <!-- Contact Modal -->
-<div id="contact-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-zinc-950/45 backdrop-blur-sm px-4">
-  <div class="glass-card w-full max-w-md p-6 sm:p-7">
+<div id="contact-modal" role="dialog" aria-modal="true" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-zinc-950/20 px-4 opacity-0 transition-opacity duration-200">
+  <div class="contact-modal-panel w-full max-w-md rounded-2xl border border-zinc-200/80 bg-white shadow-[0_24px_60px_rgba(15,23,42,0.18)] p-6 sm:p-7 dark:border-zinc-800 dark:bg-zinc-950 opacity-0 translate-y-4 scale-[0.98] transition-all duration-200 ease-out">
 
     <h3 class="text-lg font-semibold text-zinc-900 dark:text-white mb-4">
       Get in Touch
@@ -507,8 +466,8 @@
         name="name"
         placeholder="Your name"
         required
-        class="w-full px-3 py-2.5 border border-white/40 dark:border-white/15 rounded-lg
-               bg-white/70 dark:bg-zinc-900/70 backdrop-blur-md text-zinc-900 dark:text-zinc-200 outline-none focus:ring-2 focus:ring-blue-500/40"
+        class="w-full px-3 py-2.5 border border-zinc-300 dark:border-zinc-700 rounded-lg
+               bg-zinc-50 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-200 outline-none focus:ring-2 focus:ring-blue-500/40"
       />
 
       <input
@@ -516,8 +475,8 @@
         name="email"
         placeholder="Your email"
         required
-        class="w-full px-3 py-2.5 border border-white/40 dark:border-white/15 rounded-lg
-               bg-white/70 dark:bg-zinc-900/70 backdrop-blur-md text-zinc-900 dark:text-zinc-200 outline-none focus:ring-2 focus:ring-blue-500/40"
+        class="w-full px-3 py-2.5 border border-zinc-300 dark:border-zinc-700 rounded-lg
+               bg-zinc-50 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-200 outline-none focus:ring-2 focus:ring-blue-500/40"
       />
 
       <textarea
@@ -525,15 +484,15 @@
         rows="4"
         placeholder="Your message"
         required
-        class="w-full px-3 py-2.5 border border-white/40 dark:border-white/15 rounded-lg
-               bg-white/70 dark:bg-zinc-900/70 backdrop-blur-md text-zinc-900 dark:text-zinc-200 outline-none focus:ring-2 focus:ring-blue-500/40"
+        class="w-full px-3 py-2.5 border border-zinc-300 dark:border-zinc-700 rounded-lg
+               bg-zinc-50 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-200 outline-none focus:ring-2 focus:ring-blue-500/40"
       ></textarea>
 
       <div class="flex justify-end gap-2 pt-2">
         <button
           type="button"
           onclick="closeContactModal()"
-          class="glass-button px-4 py-2 rounded-lg text-zinc-700 dark:text-zinc-200"
+          class="px-4 py-2 rounded-lg border border-zinc-300 text-zinc-700 hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-900 transition-colors"
         >
           Cancel
         </button>
@@ -547,6 +506,76 @@
       </div>
     </form>
 
+  </div>
+</div>
+
+<!-- Certification Modal -->
+<div id="cert-modal" role="dialog" aria-modal="true" class="hidden fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm px-4 py-8 transition-opacity duration-300 opacity-0 pointer-events-none">
+  <div class="glass-card w-full max-w-3xl p-6 sm:p-7 relative cert-modal-content opacity-0 scale-95 translate-y-8 transition-all duration-300">
+    <button type="button" onclick="closeCertModal()" class="absolute top-4 right-4 text-zinc-500 hover:text-zinc-900 dark:hover:text-white text-xl">
+      <i class="fas fa-times"></i>
+    </button>
+
+    <div class="space-y-6">
+      <div class="overflow-hidden rounded-3xl bg-transparent">
+        <div class="px-4 py-3">
+          <h3 id="cert-modal-title" class="text-2xl font-semibold text-zinc-900 dark:text-white"></h3>
+          <p id="cert-modal-issuer" class="text-sm text-zinc-500 dark:text-zinc-400 mt-1"></p>
+        </div>
+
+        <div class="overflow-hidden cert-slider-wrapper">
+          <div id="cert-slider-track" class="cert-slider-track flex">
+            <!-- slides inserted dynamically -->
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between px-4 py-3">
+          <div class="flex items-center gap-2">
+            <button type="button" class="glass-button p-2 rounded-xl cert-prev"><i class="fas fa-chevron-left"></i></button>
+            <button type="button" class="glass-button p-2 rounded-xl cert-next"><i class="fas fa-chevron-right"></i></button>
+          </div>
+          <div id="cert-slider-indicators" class="flex justify-center gap-2"></div>
+        </div>
+      </div>
+
+      <div class="space-y-4">
+        <h4 class="text-sm font-semibold text-zinc-900 dark:text-white uppercase tracking-[0.18em] mb-3">Achievements</h4>
+        <ul id="cert-achievements" class="list-disc list-inside text-zinc-600 dark:text-zinc-400 space-y-2"></ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Project Modal -->
+<div id="project-modal" role="dialog" aria-modal="true" class="hidden fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm px-4 py-8 transition-opacity duration-300 opacity-0 pointer-events-none">
+  <div class="glass-card w-full max-w-4xl p-6 sm:p-7 relative project-modal-content opacity-0 scale-95 translate-y-8 transition-all duration-300">
+    <button type="button" onclick="closeProjectModal()" class="absolute top-4 right-4 text-zinc-500 hover:text-zinc-900 dark:hover:text-white text-xl">
+      <i class="fas fa-times"></i>
+    </button>
+
+    <div class="grid gap-6 lg:grid-cols-[1.2fr_0.8fr] items-start">
+      <div class="overflow-hidden rounded-3xl bg-transparent">
+        <div class="px-4 py-3">
+          <h3 id="project-modal-title" class="text-2xl font-semibold text-zinc-900 dark:text-white"></h3>
+          <p id="project-modal-subtitle" class="text-sm text-zinc-500 dark:text-zinc-400 mt-1"></p>
+        </div>
+
+        <div class="overflow-hidden">
+          <img id="project-modal-image" src="" alt="" class="w-full h-56 object-contain bg-transparent" loading="lazy" decoding="async">
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        <h4 class="text-sm font-semibold text-zinc-900 dark:text-white uppercase tracking-[0.18em] mb-3">Project Description</h4>
+        <p id="project-modal-description" class="text-zinc-600 dark:text-zinc-400 text-sm"></p>
+
+        <div>
+          <h4 class="text-sm font-semibold text-zinc-900 dark:text-white uppercase tracking-[0.18em] mb-3">Tech Stack</h4>
+          <div id="project-modal-tech" class="flex flex-wrap gap-2"></div>
+        </div>
+
+      </div>
+    </div>
   </div>
 </div>
 
@@ -808,14 +837,14 @@
   .mini-list {
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
+    gap: 1rem;
   }
 
   .mini-item {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0.6rem 0.25rem;
+    padding: 0.9rem 0.85rem;
     border-radius: 0.75rem;
     transition: background 0.25s ease, transform 0.25s ease;
   }
@@ -845,6 +874,135 @@
 
   .dark .mini-item .item-subtitle {
     color: rgb(161 161 170);
+  }
+
+  button.mini-item {
+    background: transparent;
+    border: none;
+    padding: 0;
+    font: inherit;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .project-modal-content,
+  .cert-modal-content {
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+  }
+
+  .cert-modal-content {
+    max-width: 640px;
+  }
+
+  .cert-slider-wrapper {
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  /* Title overlay removed; titles are displayed above the image */
+
+  #project-modal.project-open,
+  #cert-modal.project-open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  #project-modal.project-open .project-modal-content,
+  #cert-modal.project-open .cert-modal-content {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  .project-tech-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.45rem 0.8rem;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.58);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    color: rgb(30 30 30);
+    font-size: 0.85rem;
+  }
+
+  /* Modal backdrop: light glass in light mode, darker tint in dark mode */
+  #project-modal, #cert-modal {
+    background: rgba(2,6,23,0.62); /* default darker tint for dark mode */
+  }
+
+  html:not(.dark) #project-modal, html:not(.dark) #cert-modal {
+    background: linear-gradient(180deg, rgba(255,255,255,0.62), rgba(255,255,255,0.48));
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+
+  /* Slightly stronger glass effect for the modal content on light mode */
+  html:not(.dark) .project-modal-content, html:not(.dark) .cert-modal-content {
+    background: linear-gradient(140deg, rgba(255,255,255,0.72), rgba(255,255,255,0.44));
+    border: 1px solid rgba(255,255,255,0.6);
+    box-shadow: 0 28px 60px rgba(15, 23, 42, 0.08), inset 0 1px 0 rgba(255,255,255,0.6);
+  }
+
+  .dark .project-tech-chip {
+    background: rgba(39, 39, 42, 0.6);
+    border-color: rgba(255, 255, 255, 0.12);
+    color: rgb(243 244 246);
+  }
+
+  /* Certification modal slider */
+  .cert-slider-track {
+    display: flex;
+    transition: transform 0.35s ease;
+  }
+
+  .cert-slide {
+    flex: 0 0 100%;
+    aspect-ratio: 16 / 9;
+    min-height: 200px;
+    max-height: 320px;
+  }
+
+  #cert-slider-track img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: rgba(255,255,255,0.6);
+  }
+
+  @media (max-width: 768px) {
+    .project-modal-content,
+    .cert-modal-content {
+      padding: 1.25rem;
+      max-width: calc(100vw - 24px);
+    }
+
+    .cert-slide {
+      min-height: 180px;
+      max-height: 280px;
+    }
+
+    .project-modal-content img {
+      height: 220px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .project-modal-content,
+    .cert-modal-content {
+      max-width: calc(100vw - 16px);
+      padding: 1rem;
+    }
+
+    .cert-slide {
+      min-height: 160px;
+      max-height: 240px;
+    }
+
+    .project-modal-content img {
+      height: 180px;
+    }
   }
 
   .mini-caret {
@@ -957,16 +1115,40 @@
 
   function sendEmail() {
     const modal = document.getElementById('contact-modal');
-    if (modal) {
-      modal.classList.remove('hidden');
+    if (!modal) return;
+
+    const panel = modal.querySelector('.contact-modal-panel');
+    window.clearTimeout(window.__contactModalCloseTimer);
+
+    modal.classList.remove('hidden');
+    requestAnimationFrame(() => {
+      modal.classList.add('opacity-100');
+      if (panel) {
+        panel.classList.add('opacity-100', 'translate-y-0', 'scale-100');
+      }
+      activateModalFocusTrap(modal);
       const nameInput = document.getElementById('contact-name');
-      if (nameInput) nameInput.focus();
-    }
+      if (nameInput) {
+        nameInput.focus();
+      }
+    });
   }
 
   function closeContactModal() {
     const modal = document.getElementById('contact-modal');
-    if (modal) modal.classList.add('hidden');
+    if (!modal) return;
+
+    const panel = modal.querySelector('.contact-modal-panel');
+    modal.classList.remove('opacity-100');
+    if (panel) {
+      panel.classList.remove('opacity-100', 'translate-y-0', 'scale-100');
+    }
+
+    deactivateModalFocusTrap();
+
+    window.__contactModalCloseTimer = window.setTimeout(() => {
+      modal.classList.add('hidden');
+    }, 200);
   }
 
   function validateEmail(email) {
@@ -1024,10 +1206,325 @@
     }
   });
 
-  // Close modal on Escape
+  // Close modal on Escape and trap focus inside the active modal
   document.addEventListener('keydown', (ev) => {
-    if (ev.key === 'Escape') closeContactModal();
+    if (ev.key === 'Escape') {
+      if (!document.getElementById('project-modal')?.classList.contains('hidden')) {
+        closeProjectModal();
+      } else if (!document.getElementById('cert-modal')?.classList.contains('hidden')) {
+        closeCertModal();
+      } else {
+        closeContactModal();
+      }
+    }
+
+    if (ev.key === 'Tab' && activeModal) {
+      if (!modalFocusableElements.length) return;
+      if (ev.shiftKey) {
+        if (document.activeElement === firstFocusableElement) {
+          ev.preventDefault();
+          lastFocusableElement.focus();
+        }
+      } else {
+        if (document.activeElement === lastFocusableElement) {
+          ev.preventDefault();
+          firstFocusableElement.focus();
+        }
+      }
+    }
   });
+
+  document.addEventListener('focusin', (event) => {
+    if (activeModal && !activeModal.contains(event.target)) {
+      event.preventDefault();
+      firstFocusableElement?.focus();
+    }
+  });
+
+  const projects = {
+    gmcamsys: {
+      title: 'GM-STUDIO',
+      subtitle: 'Web-Based Services Showcasing Website',
+      description: 'A modern portfolio and showcase website built to present your projects, case studies, and key achievements with polished animations and responsive layouts.',
+      image: 'src/projects/gmcamera.png?v=1',
+      tech: [
+        { label: 'HTML', icon: 'fa-brands fa-html5 text-orange-500' },
+        { label: 'CSS', icon: 'fa-brands fa-css3-alt text-sky-500' },
+        { label: 'JavaScript', icon: 'fab fa-js text-yellow-500' },
+        { label: 'Responsive Design', icon: 'fas fa-mobile-screen-button text-blue-500' }
+      ]
+    },
+    ldcdentsys: {
+      title: 'LDC-DENTSYS',
+      subtitle: 'Dental Appointment System with AI Support',
+      description: 'A dental appointment and patient management system with AI-powered scheduling suggestions, appointment reminders, and an intuitive clinic dashboard.',
+      image: 'src/projects/ldc.png?v=1',
+      tech: [
+        { label: 'HTML', icon: 'fa-brands fa-html5 text-orange-500' },
+        { label: 'CSS', icon: 'fa-brands fa-css3-alt text-sky-500' },
+        { label: 'JavaScript', icon: 'fab fa-js text-yellow-500' },
+        { label: 'PHP', icon: 'fab fa-php text-purple-500' },
+        { label: 'MySQL', icon: 'fas fa-database text-indigo-500' },
+        { label: 'AI Integration', icon: 'fas fa-robot text-fuchsia-500' }
+      ]
+    },
+    tipidbuddy: {
+      title: 'TipidBuddy',
+      subtitle: 'Android Savings and Expenses Tracker',
+      description: 'A mobile savings and expense tracking app designed to help users monitor budgets, categorize spending, and reach financial goals with simplicity.',
+      image: 'src/certificates/tipidbuddy.webp?v=1',
+      tech: [
+        { label: 'Android', icon: 'fab fa-android text-green-500' },
+        { label: 'Java', icon: 'fa-brands fa-java text-amber-500' },
+        { label: 'SQLite', icon: 'fas fa-database text-slate-500' },
+        { label: 'Material Design', icon: 'fas fa-layer-group text-cyan-500' },
+        { label: 'Firebase', icon: 'fa-brands fa-firefox-browser text-orange-500' }
+      ]
+    },
+    gatepass: {
+      title: 'Gatepass Request & Management',
+      subtitle: 'Web-Based System for Development Academy of the Philippines',
+      description: 'A responsive facility access control system with QR code-based attendance tracking to streamline entry and exit management.',
+      image: 'src/projects/dap.png?v=1',
+      tech: [
+        { label: 'HTML', icon: 'fa-brands fa-html5 text-orange-500' },
+        { label: 'CSS', icon: 'fa-brands fa-css3-alt text-sky-500' },
+        { label: 'JavaScript', icon: 'fab fa-js text-yellow-500' },
+        { label: 'PHP', icon: 'fab fa-php text-purple-500' },
+        { label: 'Laravel', icon: 'fa-brands fa-laravel text-orange-500' },
+        { label: 'MySQL', icon: 'fas fa-database text-indigo-500' }
+      ]
+    }
+  };
+
+  const certifications = {
+    'dean-lister': {
+      title: 'Dean Lister',
+      issuer: 'University of Makati',
+      images: ['src/certificates/deanlister1.webp?v=1', 'src/certificates/deanlister2.webp?v=1', 'src/certificates/deanlister3.webp?v=1'],
+      achievements: ['Recognized on the Dean\'s List for academic excellence']
+    },
+    'infotech-2025': {
+      title: 'Infotech Olympics 2025',
+      issuer: 'University of Makati',
+      images: ['src/Gallery/image5.webp?v=1','src/certificates/certinfotech.webp?v=1'],
+      achievements: ['Champion in Web Design Category', 'Showcased skills in UI/UX design, frontend development, and teamwork']
+    },
+    'skills-2025': {
+      title: 'IT 14th Skills Olympics 2025',
+      issuer: 'University of Makati',
+      images: ['src/certificates/itolympics.webp?v=1'],
+      achievements: ['Participated in Web Development Competition', 'Represented the University of Makati in the Web Design Category']
+    }
+  };
+
+  function closeProjectModal() {
+    const modal = document.getElementById('project-modal');
+    if (!modal) return;
+    modal.classList.remove('project-open');
+    deactivateModalFocusTrap();
+    document.body.style.overflow = '';
+    window.setTimeout(() => {
+      modal.classList.add('hidden');
+    }, 280);
+  }
+
+  function openProjectModal(projectKey) {
+    const project = projects[projectKey];
+    if (!project) return;
+
+    const modal = document.getElementById('project-modal');
+    const titleEl = document.getElementById('project-modal-title');
+    const subtitleEl = document.getElementById('project-modal-subtitle');
+    const descriptionEl = document.getElementById('project-modal-description');
+    const imageEl = document.getElementById('project-modal-image');
+    const techContainer = document.getElementById('project-modal-tech');
+
+    if (!modal || !titleEl || !subtitleEl || !descriptionEl || !imageEl || !techContainer) return;
+
+    titleEl.textContent = project.title;
+    subtitleEl.textContent = project.subtitle;
+    descriptionEl.textContent = project.description;
+    imageEl.src = project.image;
+    imageEl.alt = project.title;
+
+    techContainer.innerHTML = '';
+    project.tech.forEach((tech) => {
+      const chip = document.createElement('span');
+      chip.className = 'project-tech-chip';
+
+      const icon = document.createElement('i');
+      icon.className = `${tech.icon} mr-2`;
+      chip.appendChild(icon);
+
+      chip.appendChild(document.createTextNode(tech.label));
+      techContainer.appendChild(chip);
+    });
+
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+    window.requestAnimationFrame(() => {
+      modal.classList.add('project-open');
+      activateModalFocusTrap(modal);
+    });
+  }
+
+  document.querySelectorAll('.project-trigger').forEach((item) => {
+    item.addEventListener('click', () => openProjectModal(item.dataset.project));
+  });
+
+  // Certification modal logic
+  let certCurrentIndex = 0;
+  let certCurrentKey = null;
+  function openCertModal(certKey) {
+    const cert = certifications[certKey];
+    if (!cert) return;
+
+    certCurrentKey = certKey;
+
+    const modal = document.getElementById('cert-modal');
+    const titleEl = document.getElementById('cert-modal-title');
+    const issuerEl = document.getElementById('cert-modal-issuer');
+    const sliderTrack = document.getElementById('cert-slider-track');
+    const indicators = document.getElementById('cert-slider-indicators');
+    const achievementsEl = document.getElementById('cert-achievements');
+
+    if (!modal || !titleEl || !issuerEl || !sliderTrack || !indicators || !achievementsEl) return;
+
+    titleEl.textContent = cert.title;
+    issuerEl.textContent = cert.issuer;
+
+    // render slides
+    sliderTrack.innerHTML = '';
+    cert.images.forEach((src) => {
+      const slide = document.createElement('div');
+      slide.className = 'cert-slide';
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = cert.title;
+      slide.appendChild(img);
+      sliderTrack.appendChild(slide);
+    });
+
+    // indicators
+    indicators.innerHTML = '';
+    cert.images.forEach((_, i) => {
+      const dot = document.createElement('div');
+      dot.className = 'w-2 h-2 rounded-full bg-zinc-300 dark:bg-zinc-700';
+      dot.addEventListener('click', () => {
+        certCurrentIndex = i;
+        updateCertSlider();
+      });
+      indicators.appendChild(dot);
+    });
+
+    // achievements
+    achievementsEl.innerHTML = '';
+    cert.achievements.forEach((a) => {
+      const li = document.createElement('li');
+      li.textContent = a;
+      achievementsEl.appendChild(li);
+    });
+
+    certCurrentIndex = 0;
+    updateCertSlider();
+
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+    window.requestAnimationFrame(() => {
+      modal.classList.add('project-open');
+      activateModalFocusTrap(modal);
+    });
+  }
+
+  function updateCertSlider() {
+    const sliderTrack = document.getElementById('cert-slider-track');
+    const indicators = document.getElementById('cert-slider-indicators');
+    if (!sliderTrack || !indicators) return;
+    sliderTrack.style.transform = `translateX(-${certCurrentIndex * 100}%)`;
+
+    Array.from(indicators.children).forEach((dot, i) => {
+      if (i === certCurrentIndex) {
+        dot.classList.remove('bg-zinc-300', 'dark:bg-zinc-700');
+        dot.classList.add('bg-blue-500', 'dark:bg-blue-400');
+        dot.style.width = '12px';
+      } else {
+        dot.classList.remove('bg-blue-500', 'dark:bg-blue-400');
+        dot.classList.add('bg-zinc-300', 'dark:bg-zinc-700');
+        dot.style.width = '8px';
+      }
+    });
+  }
+
+  function closeCertModal() {
+    const modal = document.getElementById('cert-modal');
+    if (!modal) return;
+    modal.classList.remove('project-open');
+    deactivateModalFocusTrap();
+    document.body.style.overflow = '';
+    window.setTimeout(() => {
+      modal.classList.add('hidden');
+    }, 280);
+  }
+
+  function getModalFocusableElements(modal) {
+    if (!modal) return [];
+    return Array.from(modal.querySelectorAll('a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])'))
+      .filter((el) => el.offsetParent !== null);
+  }
+
+  let activeModal = null;
+  let modalFocusableElements = [];
+  let firstFocusableElement = null;
+  let lastFocusableElement = null;
+
+  function activateModalFocusTrap(modal) {
+    activeModal = modal;
+    modalFocusableElements = getModalFocusableElements(modal);
+    if (modalFocusableElements.length) {
+      firstFocusableElement = modalFocusableElements[0];
+      lastFocusableElement = modalFocusableElements[modalFocusableElements.length - 1];
+      firstFocusableElement.focus();
+    }
+  }
+
+  function deactivateModalFocusTrap() {
+    activeModal = null;
+    modalFocusableElements = [];
+    firstFocusableElement = null;
+    lastFocusableElement = null;
+  }
+
+  function attachModalBackdropClose(modal, closeHandler) {
+    if (!modal) return;
+    modal.addEventListener('click', (event) => {
+      if (event.target === modal) {
+        closeHandler();
+      }
+    });
+  }
+
+  document.querySelectorAll('.cert-trigger').forEach((item) => {
+    item.addEventListener('click', () => openCertModal(item.dataset.cert));
+  });
+
+  document.querySelectorAll('.cert-next').forEach(btn => btn.addEventListener('click', () => {
+    if (!certCurrentKey) return;
+    const cert = certifications[certCurrentKey];
+    if (!cert) return;
+    certCurrentIndex = Math.min(certCurrentIndex + 1, cert.images.length - 1);
+    updateCertSlider();
+  }));
+
+  document.querySelectorAll('.cert-prev').forEach(btn => btn.addEventListener('click', () => {
+    if (!certCurrentKey) return;
+    certCurrentIndex = Math.max(certCurrentIndex - 1, 0);
+    updateCertSlider();
+  }));
+
+  attachModalBackdropClose(document.getElementById('project-modal'), closeProjectModal);
+  attachModalBackdropClose(document.getElementById('cert-modal'), closeCertModal);
+  attachModalBackdropClose(document.getElementById('contact-modal'), closeContactModal);
 
   function visitCommunity() {
     alert('Visit Community: This would redirect to the community page.');
