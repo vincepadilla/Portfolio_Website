@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -20,1754 +21,599 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'system-ui', 'sans-serif'],
-          }
-        }
-      }
-    }
-  </script>
-  <style>
-    /* Custom scrollbar */
-    ::-webkit-scrollbar {
-      width: 6px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #f1f1f1;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #888;
-      border-radius: 3px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #555;
-    }
-  </style>
+  <script src="tailwind-config.js"></script>
+  
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="bg-zinc-100 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-200 font-sans transition-colors duration-300">
 
-<div class="background-glow bg-glow-1" aria-hidden="true"></div>
-<div class="background-glow bg-glow-2" aria-hidden="true"></div>
-<div class="background-glow bg-glow-3" aria-hidden="true"></div>
+  <div class="background-glow bg-glow-1" aria-hidden="true"></div>
+  <div class="background-glow bg-glow-2" aria-hidden="true"></div>
+  <div class="background-glow bg-glow-3" aria-hidden="true"></div>
 
-<!-- Dark Mode Toggle with Icons -->
-<div class="fixed top-5 right-5 sm:top-6 sm:right-6 z-50">
-  <button onclick="toggleDark()"
-    class="w-12 h-6 rounded-full bg-white/50 dark:bg-zinc-800/70 border border-white/40 dark:border-white/15 backdrop-blur-xl relative transition-all duration-300 group shadow-[0_10px_24px_rgba(15,23,42,0.16)]">
-    <span id="dot"
-      class="absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-white dark:bg-zinc-900 transition-all duration-300 flex items-center justify-center">
-    </span>
-    <span class="absolute inset-0 flex items-center justify-between px-1.5">
-      <i class="fas fa-sun text-xs text-zinc-700 dark:text-zinc-300"></i>
-      <i class="fas fa-moon text-xs text-zinc-700 dark:text-zinc-300"></i>
-    </span>
-  </button>
-</div>
+  <!-- Dark Mode Toggle with Icons -->
+  <div class="fixed top-5 right-5 sm:top-6 sm:right-6 z-50">
+    <button onclick="toggleDark()"
+      class="w-12 h-6 rounded-full bg-white/50 dark:bg-zinc-800/70 border border-white/40 dark:border-white/15 backdrop-blur-xl relative transition-all duration-300 group shadow-[0_10px_24px_rgba(15,23,42,0.16)]">
+      <span id="dot"
+        class="absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-white dark:bg-zinc-900 transition-all duration-300 flex items-center justify-center">
+      </span>
+      <span class="absolute inset-0 flex items-center justify-between px-1.5">
+        <i class="fas fa-sun text-xs text-zinc-700 dark:text-zinc-300"></i>
+        <i class="fas fa-moon text-xs text-zinc-700 dark:text-zinc-300"></i>
+      </span>
+    </button>
+  </div>
 
-<main class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-8 sm:space-y-10">
+  <main class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-8 sm:space-y-10">
 
-  <!-- HEADER -->
-  <section class="glass-card section-hover flex flex-col lg:flex-row gap-6 sm:gap-8 items-start p-6 sm:p-8">
-    <div class="relative">
-      <img
-        id="profile-image"
-        src="src/profilelight.webp"
-        data-light-src="src/profilelight.webp"
-        data-dark-src="src/profiledark.webp"
-        loading="eager"
-        fetchpriority="high"
-        decoding="async"
-        width="128"
-        height="128"
-        class="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl object-cover border border-white/30 dark:border-white/15 shadow-xl profile-image"
-        alt="Vince Padilla profile picture"
-      />
-    </div>
-
-    <div class="flex-1 space-y-4">
-      <div>
-        <h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-900 dark:text-white">Vince Padilla</h1>
-        
-        <div class="mt-2 space-y-1">
-          <p class="text-sm text-zinc-500 dark:text-zinc-400">
-            Metro Manila, Philippines
-          </p>
-          <p class="text-zinc-700 dark:text-zinc-300 text-base sm:text-lg">
-            Web & Mobile Developer 
-          </p>
-        </div>
-      </div>
-    </div>
-
-  </section>
-
-  <!-- Horizontal Divider -->
-  <div class="h-px bg-gradient-to-r from-transparent via-white/60 dark:via-white/20 to-transparent"></div>
-
-  <!-- GRID -->
-  <section class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-
-    <!-- LEFT COLUMN -->
-    <div class="lg:col-span-2 space-y-8">
-
-      <!-- ABOUT -->
-      <div class="glass-card section-hover p-6 sm:p-7">
-        <h2 class="text-lg font-semibold mb-4 text-zinc-900 dark:text-white">About</h2>
-        <div class="space-y-4 text-zinc-600 dark:text-zinc-400">
-          <p>
-           Hi! I'm a 20-year-old student from the University of Makati with a strong passion for coding and technology. 
-           My programming journey began back in Senior High School, where I first discovered my interest in web and software development.
-            Since then, I've been continuously learning, building, and improving my skills in programming especially in creating web applications.
-          </p>
-        </div>
+    <!-- HEADER -->
+    <section class="glass-card section-hover flex flex-col lg:flex-row gap-6 sm:gap-8 items-start p-6 sm:p-8">
+      <div class="relative">
+        <img id="profile-image" src="src/profilelight.webp" data-light-src="src/profilelight.webp"
+          data-dark-src="src/profiledark.webp" loading="eager" fetchpriority="high" decoding="async" width="128"
+          height="128"
+          class="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl object-cover border border-white/30 dark:border-white/15 shadow-xl profile-image"
+          alt="Vince Padilla profile picture" />
       </div>
 
-      <!-- TECH STACK -->
-      <div class="glass-card section-hover p-6 sm:p-7">
-        <div class="flex items-center justify-between mb-6">
-          <h2 class="text-xl font-semibold text-zinc-900 dark:text-white">Tech Stack</h2>
-        </div>
-        
-        <div class="space-y-7">
-          <!-- Frontend -->
-          <div>
-            <h3 class="font-semibold text-zinc-800 dark:text-zinc-300 mb-3 text-base">Frontend</h3>
-            <div class="flex flex-wrap gap-2.5">
-              <span class="stack-chip"><i class="fa-brands fa-html5 text-orange-500"></i><span>HTML</span></span>
-              <span class="stack-chip"><i class="fa-brands fa-css3-alt text-sky-500"></i><span>CSS</span></span>
-              <span class="stack-chip"><i class="fab fa-js text-yellow-500"></i><span>JavaScript</span></span>
-              <span class="stack-chip"><i class="fa-brands fa-react text-blue-500"></i><span>React Js</span></span>
-            </div>
-          </div>
-          
-          <!-- Backend -->
-          <div>
-            <h3 class="font-semibold text-zinc-800 dark:text-zinc-300 mb-3 text-base">Backend</h3>
-            <div class="flex flex-wrap gap-2.5">
-              <span class="stack-chip"><i class="fab fa-node-js text-green-500"></i><span>Node.js</span></span>
-              <span class="stack-chip"><i class="fa-solid fa-code text-blue-500"></i><span>TypeScript</span></span>
-              <span class="stack-chip"><span>C#</span></span>
-              <span class="stack-chip"><span>C++</span></span>
-              <span class="stack-chip"><i class="fa-brands fa-java text-amber-500"></i><span>Java</span></span>
-              <span class="stack-chip"><i class="fab fa-php text-purple-500"></i><span>PHP</span></span>
-            </div>
-          </div>
+      <div class="flex-1 space-y-4">
+        <div>
+          <h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-900 dark:text-white">Vince Padilla</h1>
 
-          <!-- Framework -->
-          <div>
-            <h3 class="font-semibold text-zinc-800 dark:text-zinc-300 mb-3 text-base">Framework</h3>
-            <div class="flex flex-wrap gap-2.5">
-              <span class="stack-chip"><i class="fa-brands fa-laravel text-orange-500"></i><span>Laravel</span></span>
-              <span class="stack-chip"><i class="fas fa-wind text-teal-500"></i><span>Tailwind CSS</span></span>
-            </div>
-          </div>
-
-          <!-- Database -->
-          <div>
-            <h3 class="font-semibold text-zinc-800 dark:text-zinc-300 mb-3 text-base">Database</h3>
-            <div class="flex flex-wrap gap-2.5">
-              <span class="stack-chip"><i class="fas fa-database text-indigo-500"></i><span>MySQL</span></span>
-              <span class="stack-chip"><span>Supabase</span></span>
-            </div>
-          </div>
-          
-          <!-- Version Control -->
-          <div>
-            <h3 class="font-semibold text-zinc-800 dark:text-zinc-300 mb-3 text-base">Version Control</h3>
-            <div class="flex flex-wrap gap-2.5">
-              <span class="stack-chip"><i class="fab fa-github text-zinc-700 dark:text-zinc-200"></i><span>Git & GitHub</span></span>
-            </div>
+          <div class="mt-2 space-y-1">
+            <p class="text-sm text-zinc-500 dark:text-zinc-400">
+              Metro Manila, Philippines
+            </p>
+            <p class="text-zinc-700 dark:text-zinc-300 text-base sm:text-lg">
+              Web & Mobile Developer
+            </p>
           </div>
         </div>
       </div>
 
-      <!-- PROJECTS & CERTIFICATIONS SIDE BY SIDE -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        
-        <!-- RECENT PROJECTS -->
+    </section>
+
+    <!-- Horizontal Divider -->
+    <div class="h-px bg-gradient-to-r from-transparent via-white/60 dark:via-white/20 to-transparent"></div>
+
+    <!-- GRID -->
+    <section class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+      <!-- LEFT COLUMN -->
+      <div class="lg:col-span-2 space-y-8">
+
+        <!-- ABOUT -->
         <div class="glass-card section-hover p-6 sm:p-7">
-          <h2 class="text-lg font-semibold mb-4 text-zinc-900 dark:text-white">Recent Projects</h2>
-          
-          <div class="mini-list">
-            <button type="button" class="mini-item group project-trigger" data-project="gmcamsys">
-              <div>
-                <div class="item-title">GM-STUDIO</div>
-                <div class="item-subtitle">Web-Based Services Showcasing Website</div>
-              </div>
-            </button>
-
-            <button type="button" class="mini-item group project-trigger" data-project="ldcdentsys">
-              <div>
-                <div class="item-title">LDC-DENTSYS</div>
-                <div class="item-subtitle">Dental Appointment System with AI Support</div>
-              </div>
-            </button>
-            
-            <button type="button" class="mini-item group project-trigger" data-project="gatepass">
-              <div>
-                <div class="item-title">Gatepass Request & Management</div>
-                <div class="item-subtitle">Web-Based System for Development Academy of the Philippines</div>
-              </div>
-            </button>
-
-            <button type="button" class="mini-item group project-trigger" data-project="owlix">
-              <div>
-                <div class="item-title">OWLIX</div>
-                <div class="item-subtitle">Career Tracking and File Management Mobile App</div>
-              </div>
-            </button>
+          <h2 class="text-lg font-semibold mb-4 text-zinc-900 dark:text-white">About</h2>
+          <div class="space-y-4 text-zinc-600 dark:text-zinc-400">
+            <p>
+              Hi! I'm a 20-year-old student from the University of Makati with a strong passion for coding and
+              technology.
+              My programming journey began back in Senior High School, where I first discovered my interest in web and
+              software development.
+              Since then, I've been continuously learning, building, and improving my skills in programming especially
+              in creating web applications.
+            </p>
           </div>
-          
-          
         </div>
 
-        <!-- RECENT CERTIFICATIONS -->
+        <!-- TECH STACK -->
         <div class="glass-card section-hover p-6 sm:p-7">
-          <h2 class="text-lg font-semibold mb-4 text-zinc-900 dark:text-white">Recent Certifications</h2>
-          
-          <div class="mini-list">
-            <button type="button" class="mini-item group cert-trigger" data-cert="dean-lister">
-              <div>
-                <div class="item-title group-hover:text-blue-600 dark:group-hover:text-blue-400">Dean Lister</div>
-                <div class="item-subtitle">University of Makati</div>
-              </div>
-            </button>
-
-            <button type="button" class="mini-item group cert-trigger" data-cert="infotech-2025">
-              <div>
-                <div class="item-title group-hover:text-blue-600 dark:group-hover:text-blue-400">Infotech Olympics 2025</div>
-                <div class="item-subtitle">University of Makati</div>
-              </div>
-            </button>
-
-            <button type="button" class="mini-item group cert-trigger" data-cert="skills-2025">
-              <div>
-                <div class="item-title group-hover:text-blue-600 dark:group-hover:text-blue-400">IT 14th Skills Olympics 2025</div>
-                <div class="item-subtitle">University of Makati</div>
-              </div>
-            </button>
+          <div class="flex items-center justify-between mb-6">
+            <h2 class="text-xl font-semibold text-zinc-900 dark:text-white">Tech Stack</h2>
           </div>
-          
-          
+
+          <div class="space-y-7">
+            <!-- Frontend -->
+            <div>
+              <h3 class="font-semibold text-zinc-800 dark:text-zinc-300 mb-3 text-base">Frontend</h3>
+              <div class="flex flex-wrap gap-2.5">
+                <span class="stack-chip"><i class="fa-brands fa-html5 text-orange-500"></i><span>HTML</span></span>
+                <span class="stack-chip"><i class="fa-brands fa-css3-alt text-sky-500"></i><span>CSS</span></span>
+                <span class="stack-chip"><i class="fab fa-js text-yellow-500"></i><span>JavaScript</span></span>
+                <span class="stack-chip"><i class="fa-brands fa-react text-blue-500"></i><span>React Js</span></span>
+              </div>
+            </div>
+
+            <!-- Backend -->
+            <div>
+              <h3 class="font-semibold text-zinc-800 dark:text-zinc-300 mb-3 text-base">Backend</h3>
+              <div class="flex flex-wrap gap-2.5">
+                <span class="stack-chip"><i class="fab fa-node-js text-green-500"></i><span>Node.js</span></span>
+                <span class="stack-chip"><i class="fa-solid fa-code text-blue-500"></i><span>TypeScript</span></span>
+                <span class="stack-chip"><span>C#</span></span>
+                <span class="stack-chip"><span>C++</span></span>
+                <span class="stack-chip"><i class="fa-brands fa-java text-amber-500"></i><span>Java</span></span>
+                <span class="stack-chip"><i class="fab fa-php text-purple-500"></i><span>PHP</span></span>
+              </div>
+            </div>
+
+            <!-- Framework -->
+            <div>
+              <h3 class="font-semibold text-zinc-800 dark:text-zinc-300 mb-3 text-base">Framework</h3>
+              <div class="flex flex-wrap gap-2.5">
+                <span class="stack-chip"><i class="fa-brands fa-laravel text-orange-500"></i><span>Laravel</span></span>
+                <span class="stack-chip"><i class="fas fa-wind text-teal-500"></i><span>Tailwind CSS</span></span>
+              </div>
+            </div>
+
+            <!-- Database -->
+            <div>
+              <h3 class="font-semibold text-zinc-800 dark:text-zinc-300 mb-3 text-base">Database</h3>
+              <div class="flex flex-wrap gap-2.5">
+                <span class="stack-chip"><i class="fas fa-database text-indigo-500"></i><span>MySQL</span></span>
+                <span class="stack-chip"><span>Supabase</span></span>
+              </div>
+            </div>
+
+            <!-- Version Control -->
+            <div>
+              <h3 class="font-semibold text-zinc-800 dark:text-zinc-300 mb-3 text-base">Version Control</h3>
+              <div class="flex flex-wrap gap-2.5">
+                <span class="stack-chip"><i class="fab fa-github text-zinc-700 dark:text-zinc-200"></i><span>Git &
+                    GitHub</span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECTS & CERTIFICATIONS SIDE BY SIDE -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+          <!-- RECENT PROJECTS -->
+          <div class="glass-card section-hover p-6 sm:p-7">
+            <h2 class="text-lg font-semibold mb-4 text-zinc-900 dark:text-white">Recent Projects</h2>
+
+            <div class="mini-list">
+              <button type="button" class="mini-item group project-trigger" data-project="gmcamsys">
+                <div>
+                  <div class="item-title">GM-STUDIO</div>
+                  <div class="item-subtitle">Web-Based Services Showcasing Website</div>
+                </div>
+              </button>
+
+              <button type="button" class="mini-item group project-trigger" data-project="ldcdentsys">
+                <div>
+                  <div class="item-title">LDC-DENTSYS</div>
+                  <div class="item-subtitle">Dental Appointment System with AI Support</div>
+                </div>
+              </button>
+
+              <button type="button" class="mini-item group project-trigger" data-project="gatepass">
+                <div>
+                  <div class="item-title">Gatepass Request & Management</div>
+                  <div class="item-subtitle">Web-Based System for Development Academy of the Philippines</div>
+                </div>
+              </button>
+
+              <button type="button" class="mini-item group project-trigger" data-project="owlix">
+                <div>
+                  <div class="item-title">OWLIX</div>
+                  <div class="item-subtitle">Career Tracking and File Management Mobile App</div>
+                </div>
+              </button>
+            </div>
+
+
+          </div>
+
+          <!-- RECENT CERTIFICATIONS -->
+          <div class="glass-card section-hover p-6 sm:p-7">
+            <h2 class="text-lg font-semibold mb-4 text-zinc-900 dark:text-white">Recent Certifications</h2>
+
+            <div class="mini-list">
+              <button type="button" class="mini-item group cert-trigger" data-cert="dean-lister">
+                <div>
+                  <div class="item-title group-hover:text-blue-600 dark:group-hover:text-blue-400">Dean Lister</div>
+                  <div class="item-subtitle">University of Makati</div>
+                </div>
+              </button>
+
+              <button type="button" class="mini-item group cert-trigger" data-cert="infotech-2025">
+                <div>
+                  <div class="item-title group-hover:text-blue-600 dark:group-hover:text-blue-400">Infotech Olympics
+                    2025</div>
+                  <div class="item-subtitle">University of Makati</div>
+                </div>
+              </button>
+
+              <button type="button" class="mini-item group cert-trigger" data-cert="skills-2025">
+                <div>
+                  <div class="item-title group-hover:text-blue-600 dark:group-hover:text-blue-400">IT 14th Skills
+                    Olympics 2025</div>
+                  <div class="item-subtitle">University of Makati</div>
+                </div>
+              </button>
+            </div>
+
+
+          </div>
+
         </div>
 
       </div>
 
+      <!-- RIGHT COLUMN -->
+      <div class="space-y-8">
+
+        <!-- EDUCATION TIMELINE -->
+        <div class="glass-card section-hover p-5 sm:p-6">
+          <div class="mb-5">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-300">Education</p>
+            <h2 class="mt-2 text-lg font-semibold text-zinc-900 dark:text-white">Academic Journey</h2>
+          </div>
+
+          <div class="space-y-4">
+            <article
+              class="rounded-2xl border border-white/50 dark:border-white/10 bg-white/55 dark:bg-zinc-900/45 p-4 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_40px_rgba(59,130,246,0.12)] dark:hover:shadow-[0_16px_40px_rgba(96,165,250,0.12)]">
+              <div class="flex items-start gap-3">
+                <span
+                  class="mt-1 h-3.5 w-3.5 rounded-full bg-blue-500 shadow-[0_0_0_5px_rgba(59,130,246,0.16)] dark:shadow-[0_0_0_5px_rgba(59,130,246,0.18)]"></span>
+                <div class="flex-1">
+                  <div class="flex flex-wrap items-start justify-between gap-3">
+                    <div>
+                      <p class="text-[11px] font-semibold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-300">
+                        2023-2026</p>
+                      <h3 class="mt-2 text-sm font-semibold text-zinc-900 dark:text-white">University of Makati</h3>
+                      <p class="mt-1 text-sm font-medium text-zinc-700 dark:text-zinc-200">College</p>
+                    </div>
+                    <span
+                      class="inline-flex items-center rounded-full border border-blue-200/80 bg-blue-50/80 px-2.5 py-1 text-[11px] font-semibold text-blue-700 dark:border-blue-400/20 dark:bg-blue-500/10 dark:text-blue-100">Diploma
+                      in Application Development</span>
+                  </div>
+
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="rounded-2xl border border-white/50 dark:border-white/10 bg-white/55 dark:bg-zinc-900/45 p-4 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_40px_rgba(16,185,129,0.12)] dark:hover:shadow-[0_16px_40px_rgba(74,222,128,0.12)]">
+              <div class="flex items-start gap-3">
+                <span
+                  class="mt-1 h-3.5 w-3.5 rounded-full bg-emerald-500 shadow-[0_0_0_5px_rgba(16,185,129,0.16)] dark:shadow-[0_0_0_5px_rgba(16,185,129,0.18)]"></span>
+                <div class="flex-1">
+                  <div class="flex flex-wrap items-start justify-between gap-3">
+                    <div>
+                      <p
+                        class="text-[11px] font-semibold uppercase tracking-[0.2em] text-emerald-600 dark:text-emerald-300">
+                        2021–2023</p>
+                      <h3 class="mt-2 text-sm font-semibold text-zinc-900 dark:text-white">Benigno Ninoy S. Aquino High
+                        School</h3>
+                      <p class="mt-1 text-sm font-medium text-zinc-700 dark:text-zinc-200">Senior High School</p>
+                    </div>
+                    <span
+                      class="inline-flex items-center rounded-full border border-emerald-200/80 bg-emerald-50/80 px-2.5 py-1 text-[11px] font-semibold text-emerald-700 dark:border-emerald-400/20 dark:bg-emerald-500/10 dark:text-emerald-100">TVL
+                      Track - Computer Programming</span>
+                  </div>
+
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- SEMINARS (IN RIGHT COLUMN) -->
+        <div class="glass-card section-hover p-6 sm:p-7">
+          <h2 class="text-lg font-semibold mb-6 text-zinc-900 dark:text-white">Seminars</h2>
+
+          <div class="space-y-6">
+            <!-- Seminar 1 -->
+            <div class="experience-item">
+              <div class="flex justify-between items-start">
+                <div>
+                  <h3 class="font-medium text-zinc-900 dark:text-white">CCIS Quantum Computing and BIP-360</h3>
+                  <p class="text-sm text-zinc-500 dark:text-zinc-400 mt-1">University of Makati</p>
+                </div>
+                <span class="year-badge">2025</span>
+              </div>
+            </div>
+
+            <!-- Seminar 2 -->
+            <div class="experience-item">
+              <div class="flex justify-between items-start">
+                <div>
+                  <h3 class="font-medium text-zinc-900 dark:text-white">Build with AI Manila 2026: Beyond the Prompt
+                  </h3>
+                  <p class="text-sm text-zinc-500 dark:text-zinc-400 mt-1">Google Developer Groups - Accenture People
+                    Hub</p>
+                </div>
+                <span class="year-badge">2026</span>
+              </div>
+            </div>
+
+            <!-- Seminar 3 -->
+            <div class="experience-item">
+              <div class="flex justify-between items-start">
+                <div>
+                  <h3 class="font-medium text-zinc-900 dark:text-white">Cursor Hack Sprint</h3>
+                  <p class="text-sm text-zinc-500 dark:text-zinc-400 mt-1">Artharland Century Pacific Tower</p>
+                </div>
+                <span class="year-badge">2026</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- CONNECT -->
+        <div class="glass-card section-hover p-6 sm:p-7">
+          <h2 class="text-lg font-semibold mb-4 text-zinc-900 dark:text-white">Connect</h2>
+          <div class="space-y-3">
+            <button onclick="sendEmail()"
+              class="w-full py-3 rounded-xl text-sm font-medium transition-all duration-300 flex items-center justify-center text-white bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-400 hover:to-indigo-400 hover:shadow-[0_12px_30px_rgba(59,130,246,0.38)] hover:-translate-y-0.5">
+              <i class="fas fa-envelope mr-2"></i> Send Email
+            </button>
+          </div>
+          <div class="mt-6 pt-6 border-t border-zinc-200 dark:border-zinc-800">
+            <div class="flex justify-center space-x-4">
+              <a href="https://www.facebook.com/vince.padilla.401193" target="_blank"
+                class="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors">
+                <i class="fab fa-facebook text-lg"></i>
+              </a>
+              <a href="https://github.com/vincepadilla" target="_blank"
+                class="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors">
+                <i class="fab fa-github text-lg"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/vince-henrick-padilla-97919a375" target="_blank"
+                class="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors">
+                <i class="fab fa-linkedin text-lg"></i>
+              </a>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- GALLERY SECTION -->
+    <section class="mt-12">
+      <div class="glass-card section-hover p-6 sm:p-7">
+
+        <!-- Slider Section -->
+        <div class="mt-2 pt-2">
+          <div class="flex items-center justify-between mb-6">
+            <h3 class="text-xl font-semibold text-zinc-900 dark:text-white">Gallery</h3>
+            <div class="flex gap-2">
+              <button onclick="prevSlide()"
+                class="glass-button p-2.5 rounded-xl transition-all duration-300 hover:scale-105">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button onclick="nextSlide()"
+                class="glass-button p-2.5 rounded-xl transition-all duration-300 hover:scale-105">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Slider Container -->
+          <div class="relative overflow-hidden rounded-xl">
+            <!-- Slider Track -->
+            <div id="slider-track" class="flex transition-transform duration-500 ease-in-out gap-4">
+
+              <!-- Slide 1 (PRIORITY LOAD) -->
+              <div class="w-64 flex-shrink-0">
+                <div
+                  class="h-48 rounded-lg overflow-hidden border border-zinc-200 dark:border-zinc-800 flex items-center justify-center">
+                  <img src="src/Gallery/DSCF0983.webp?v=1" alt="Gallery 1" class="w-full h-full object-cover"
+                    loading="eager" fetchpriority="high" decoding="async" width="256" height="192">
+                </div>
+              </div>
+
+              <!-- Slide 2 -->
+              <div class="w-64 flex-shrink-0">
+                <div
+                  class="h-48 rounded-lg overflow-hidden border border-zinc-200 dark:border-zinc-800 flex items-center justify-center">
+                  <img src="src/Gallery/image13.webp?v=1" alt="Gallery 2" class="w-full h-full object-cover"
+                    loading="lazy" decoding="async" width="256" height="192">
+                </div>
+              </div>
+
+              <!-- Slide 3 -->
+              <div class="w-64 flex-shrink-0">
+                <div
+                  class="h-48 rounded-lg overflow-hidden border border-zinc-200 dark:border-zinc-800 flex items-center justify-center">
+                  <img src="src/Gallery/googlepic.webp?v=1" alt="Gallery 3" class="w-full h-full object-cover"
+                    loading="lazy" decoding="async" width="256" height="192">
+                </div>
+              </div>
+
+              <!-- Slide 4 -->
+              <div class="w-64 flex-shrink-0">
+                <div
+                  class="h-48 rounded-lg overflow-hidden border border-zinc-200 dark:border-zinc-800 flex items-center justify-center">
+                  <img src="src/Gallery/webdesign.webp?v=1" alt="Gallery 5" class="w-full h-full object-cover"
+                    loading="lazy" decoding="async" width="256" height="192">
+                </div>
+              </div>
+
+              <!-- Slide 5 -->
+              <div class="w-64 flex-shrink-0">
+                <div
+                  class="h-48 rounded-lg overflow-hidden border border-zinc-200 dark:border-zinc-800 flex items-center justify-center">
+                  <img src="src/Gallery/image11.webp?v=1" alt="Gallery 11" class="w-full h-full object-cover"
+                    loading="lazy" decoding="async" width="256" height="192">
+                </div>
+              </div>
+
+              <!-- Slide 6 -->
+              <div class="w-64 flex-shrink-0">
+                <div
+                  class="h-48 rounded-lg overflow-hidden border border-zinc-200 dark:border-zinc-800 flex items-center justify-center">
+                  <img src="src/Gallery/image12.webp?v=1" alt="Gallery 12" class="w-full h-full object-cover"
+                    loading="lazy" decoding="async" width="256" height="192">
+                </div>
+              </div>
+
+              <!-- Slide 7 -->
+              <div class="w-64 flex-shrink-0">
+                <div
+                  class="h-48 rounded-lg overflow-hidden border border-zinc-200 dark:border-zinc-800 flex items-center justify-center">
+                  <img src="src/Gallery/dapimage.webp?v=1" alt="Gallery 12" class="w-full h-full object-cover"
+                    loading="lazy" decoding="async" width="256" height="192">
+                </div>
+              </div>
+
+              <div class="w-64 flex-shrink-0">
+                <div
+                  class="h-48 rounded-lg overflow-hidden border border-zinc-200 dark:border-zinc-800 flex items-center justify-center">
+                  <img src="src/Gallery/image4.webp" alt="Gallery 12" class="w-full h-full object-cover" loading="lazy"
+                    decoding="async" width="256" height="192">
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Slider Indicators -->
+          <div class="flex justify-center gap-2 mt-6">
+            <div class="w-2 h-2 rounded-full bg-blue-500 dark:bg-blue-400"></div>
+            <div class="w-2 h-2 rounded-full bg-zinc-300 dark:bg-zinc-700"></div>
+            <div class="w-2 h-2 rounded-full bg-zinc-300 dark:bg-zinc-700"></div>
+            <div class="w-2 h-2 rounded-full bg-zinc-300 dark:bg-zinc-700"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Contact Modal -->
+  <div id="contact-modal" role="dialog" aria-modal="true"
+    class="hidden fixed inset-0 z-50 flex items-center justify-center bg-zinc-950/30 backdrop-blur-md px-4 opacity-0 transition-opacity duration-200">
+    <div
+      class="contact-modal-panel w-full max-w-md rounded-2xl border border-zinc-200/80 bg-white shadow-[0_24px_60px_rgba(15,23,42,0.18)] p-6 sm:p-7 dark:border-zinc-800 dark:bg-zinc-950 opacity-0 translate-y-4 scale-[0.98] transition-all duration-200 ease-out">
+
+      <h3 class="text-lg font-semibold text-zinc-900 dark:text-white mb-4">
+        Get in Touch
+      </h3>
+
+      <form id="contact-form" class="space-y-3">
+        <input type="text" name="name" placeholder="Your name" required
+          class="w-full px-3 py-2.5 border border-zinc-300 dark:border-zinc-700 rounded-lg
+               bg-zinc-50 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-200 outline-none focus:ring-2 focus:ring-blue-500/40" />
+
+        <input type="email" name="email" placeholder="Your email" required
+          class="w-full px-3 py-2.5 border border-zinc-300 dark:border-zinc-700 rounded-lg
+               bg-zinc-50 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-200 outline-none focus:ring-2 focus:ring-blue-500/40" />
+
+        <textarea name="message" rows="4" placeholder="Your message" required
+          class="w-full px-3 py-2.5 border border-zinc-300 dark:border-zinc-700 rounded-lg
+               bg-zinc-50 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-200 outline-none focus:ring-2 focus:ring-blue-500/40"></textarea>
+
+        <div class="flex justify-end gap-2 pt-2">
+          <button type="button" onclick="closeContactModal()"
+            class="px-4 py-2 rounded-lg border border-zinc-300 text-zinc-700 hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-900 transition-colors">
+            Cancel
+          </button>
+
+          <button type="submit"
+            class="px-4 py-2 rounded-lg bg-gradient-to-r from-blue-500 to-indigo-500 text-white hover:from-blue-400 hover:to-indigo-400 transition-all duration-300 hover:shadow-[0_12px_30px_rgba(59,130,246,0.38)]">
+            Send Message
+          </button>
+        </div>
+      </form>
+
     </div>
+  </div>
 
-    <!-- RIGHT COLUMN -->
-    <div class="space-y-8">
+  <!-- Certification Modal -->
+  <div id="cert-modal" role="dialog" aria-modal="true"
+    class="hidden fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm px-4 py-8 transition-opacity duration-300 opacity-0 pointer-events-none">
+    <div
+      class="glass-card w-full max-w-3xl p-6 sm:p-7 relative cert-modal-content opacity-0 scale-95 translate-y-8 transition-all duration-300">
+      <button type="button" onclick="closeCertModal()"
+        class="absolute top-4 right-4 text-zinc-500 hover:text-zinc-900 dark:hover:text-white text-xl">
+        <i class="fas fa-times"></i>
+      </button>
 
-      <!-- EDUCATION TIMELINE -->
-      <div class="glass-card section-hover p-5 sm:p-6">
-        <div class="mb-5">
-          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-300">Education</p>
-          <h2 class="mt-2 text-lg font-semibold text-zinc-900 dark:text-white">Academic Journey</h2>
+      <div class="space-y-6">
+        <div class="overflow-hidden rounded-3xl bg-transparent">
+          <div class="px-4 py-3">
+            <h3 id="cert-modal-title" class="text-2xl font-semibold text-zinc-900 dark:text-white"></h3>
+            <p id="cert-modal-issuer" class="text-sm text-zinc-500 dark:text-zinc-400 mt-1"></p>
+          </div>
+
+          <div class="overflow-hidden cert-slider-wrapper">
+            <div id="cert-slider-track" class="cert-slider-track flex">
+              <!-- slides inserted dynamically -->
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between px-4 py-3">
+            <div class="flex items-center gap-2">
+              <button type="button" class="glass-button p-2 rounded-xl cert-prev"><i
+                  class="fas fa-chevron-left"></i></button>
+              <button type="button" class="glass-button p-2 rounded-xl cert-next"><i
+                  class="fas fa-chevron-right"></i></button>
+            </div>
+            <div id="cert-slider-indicators" class="flex justify-center gap-2"></div>
+          </div>
         </div>
 
         <div class="space-y-4">
-          <article class="rounded-2xl border border-white/50 dark:border-white/10 bg-white/55 dark:bg-zinc-900/45 p-4 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_40px_rgba(59,130,246,0.12)] dark:hover:shadow-[0_16px_40px_rgba(96,165,250,0.12)]">
-            <div class="flex items-start gap-3">
-              <span class="mt-1 h-3.5 w-3.5 rounded-full bg-blue-500 shadow-[0_0_0_5px_rgba(59,130,246,0.16)] dark:shadow-[0_0_0_5px_rgba(59,130,246,0.18)]"></span>
-              <div class="flex-1">
-                <div class="flex flex-wrap items-start justify-between gap-3">
-                  <div>
-                    <p class="text-[11px] font-semibold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-300">2023-2026</p>
-                    <h3 class="mt-2 text-sm font-semibold text-zinc-900 dark:text-white">University of Makati</h3>
-                    <p class="mt-1 text-sm font-medium text-zinc-700 dark:text-zinc-200">College</p>
-                  </div>
-                  <span class="inline-flex items-center rounded-full border border-blue-200/80 bg-blue-50/80 px-2.5 py-1 text-[11px] font-semibold text-blue-700 dark:border-blue-400/20 dark:bg-blue-500/10 dark:text-blue-100">Diploma in Application Development</span>
-                </div>
-                
-              </div>
-            </div>
-          </article>
-
-          <article class="rounded-2xl border border-white/50 dark:border-white/10 bg-white/55 dark:bg-zinc-900/45 p-4 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_40px_rgba(16,185,129,0.12)] dark:hover:shadow-[0_16px_40px_rgba(74,222,128,0.12)]">
-            <div class="flex items-start gap-3">
-              <span class="mt-1 h-3.5 w-3.5 rounded-full bg-emerald-500 shadow-[0_0_0_5px_rgba(16,185,129,0.16)] dark:shadow-[0_0_0_5px_rgba(16,185,129,0.18)]"></span>
-              <div class="flex-1">
-                <div class="flex flex-wrap items-start justify-between gap-3">
-                  <div>
-                    <p class="text-[11px] font-semibold uppercase tracking-[0.2em] text-emerald-600 dark:text-emerald-300">2021–2023</p>
-                    <h3 class="mt-2 text-sm font-semibold text-zinc-900 dark:text-white">Benigno Ninoy S. Aquino High School</h3>
-                    <p class="mt-1 text-sm font-medium text-zinc-700 dark:text-zinc-200">Senior High School</p>
-                  </div>
-                  <span class="inline-flex items-center rounded-full border border-emerald-200/80 bg-emerald-50/80 px-2.5 py-1 text-[11px] font-semibold text-emerald-700 dark:border-emerald-400/20 dark:bg-emerald-500/10 dark:text-emerald-100">TVL Track - Computer Programming</span>
-                </div>
-                
-              </div>
-            </div>
-          </article>
+          <h4 class="text-sm font-semibold text-zinc-900 dark:text-white uppercase tracking-[0.18em] mb-3">Achievements
+          </h4>
+          <ul id="cert-achievements" class="list-disc list-inside text-zinc-600 dark:text-zinc-400 space-y-2"></ul>
         </div>
       </div>
+    </div>
+  </div>
 
-      <!-- SEMINARS (IN RIGHT COLUMN) -->
-      <div class="glass-card section-hover p-6 sm:p-7">
-        <h2 class="text-lg font-semibold mb-6 text-zinc-900 dark:text-white">Seminars</h2>
-        
+  <!-- Project Modal -->
+  <div id="project-modal" role="dialog" aria-modal="true"
+    class="hidden fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm px-4 py-8 transition-opacity duration-300 opacity-0 pointer-events-none">
+    <div
+      class="glass-card w-full max-w-4xl p-6 sm:p-7 relative project-modal-content opacity-0 scale-95 translate-y-8 transition-all duration-300">
+      <button type="button" onclick="closeProjectModal()"
+        class="absolute top-4 right-4 text-zinc-500 hover:text-zinc-900 dark:hover:text-white text-xl">
+        <i class="fas fa-times"></i>
+      </button>
+
+      <div class="grid gap-6 lg:grid-cols-[1.2fr_0.8fr] items-start">
+        <div class="overflow-hidden rounded-3xl bg-transparent">
+          <div class="px-4 py-3">
+            <h3 id="project-modal-title" class="text-2xl font-semibold text-zinc-900 dark:text-white"></h3>
+            <p id="project-modal-subtitle" class="text-sm text-zinc-500 dark:text-zinc-400 mt-1"></p>
+          </div>
+
+          <div class="overflow-hidden">
+            <img id="project-modal-image" src="" alt="" class="w-full h-56 object-contain bg-transparent" loading="lazy"
+              decoding="async">
+          </div>
+        </div>
+
         <div class="space-y-6">
-          <!-- Seminar 1 -->
-          <div class="experience-item">
-            <div class="flex justify-between items-start">
-              <div>
-                <h3 class="font-medium text-zinc-900 dark:text-white">CCIS Quantum Computing and BIP-360</h3>
-                <p class="text-sm text-zinc-500 dark:text-zinc-400 mt-1">University of Makati</p>
-              </div>
-              <span class="year-badge">2025</span>
-            </div>
+          <h4 class="text-sm font-semibold text-zinc-900 dark:text-white uppercase tracking-[0.18em] mb-3">Project
+            Description</h4>
+          <p id="project-modal-description" class="text-zinc-600 dark:text-zinc-400 text-sm"></p>
+
+          <div>
+            <h4 class="text-sm font-semibold text-zinc-900 dark:text-white uppercase tracking-[0.18em] mb-3">Tech Stack
+            </h4>
+            <div id="project-modal-tech" class="flex flex-wrap gap-2"></div>
           </div>
 
-          <!-- Seminar 2 -->
-          <div class="experience-item">
-            <div class="flex justify-between items-start">
-              <div>
-                <h3 class="font-medium text-zinc-900 dark:text-white">Build with AI Manila 2026: Beyond the Prompt</h3>
-                <p class="text-sm text-zinc-500 dark:text-zinc-400 mt-1">Google Developer Groups - Accenture People Hub</p>
-              </div>
-              <span class="year-badge">2026</span>
-            </div>
-          </div>
-
-          <!-- Seminar 3 -->
-          <div class="experience-item">
-            <div class="flex justify-between items-start">
-              <div>
-                <h3 class="font-medium text-zinc-900 dark:text-white">Cursor Hack Sprint</h3>
-                <p class="text-sm text-zinc-500 dark:text-zinc-400 mt-1">Artharland Century Pacific Tower</p>
-              </div>
-              <span class="year-badge">2026</span>
-            </div>
-          </div>
-          
         </div>
-      </div>
-
-       <!-- CONNECT -->
-      <div class="glass-card section-hover p-6 sm:p-7">
-        <h2 class="text-lg font-semibold mb-4 text-zinc-900 dark:text-white">Connect</h2>
-        <div class="space-y-3">
-          <button onclick="sendEmail()" 
-            class="w-full py-3 rounded-xl text-sm font-medium transition-all duration-300 flex items-center justify-center text-white bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-400 hover:to-indigo-400 hover:shadow-[0_12px_30px_rgba(59,130,246,0.38)] hover:-translate-y-0.5">
-            <i class="fas fa-envelope mr-2"></i> Send Email
-          </button>
-        </div>
-        <div class="mt-6 pt-6 border-t border-zinc-200 dark:border-zinc-800">
-          <div class="flex justify-center space-x-4">
-            <a href="https://www.facebook.com/vince.padilla.401193" target="_blank" class="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors">
-              <i class="fab fa-facebook text-lg"></i>
-            </a>
-            <a href="https://github.com/vincepadilla" target="_blank" class="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors">
-              <i class="fab fa-github text-lg"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/vince-henrick-padilla-97919a375" target="_blank" class="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors">
-              <i class="fab fa-linkedin text-lg"></i>
-            </a>
-           
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-<!-- GALLERY SECTION -->
-<section class="mt-12">
-  <div class="glass-card section-hover p-6 sm:p-7">
-    
-    <!-- Slider Section -->
-    <div class="mt-2 pt-2">
-      <div class="flex items-center justify-between mb-6">
-        <h3 class="text-xl font-semibold text-zinc-900 dark:text-white">Gallery</h3>
-        <div class="flex gap-2">
-          <button onclick="prevSlide()" class="glass-button p-2.5 rounded-xl transition-all duration-300 hover:scale-105">
-            <i class="fas fa-chevron-left"></i>
-          </button>
-          <button onclick="nextSlide()" class="glass-button p-2.5 rounded-xl transition-all duration-300 hover:scale-105">
-            <i class="fas fa-chevron-right"></i>
-          </button>
-        </div>
-      </div>
-      
-      <!-- Slider Container -->
-    <div class="relative overflow-hidden rounded-xl">
-      <!-- Slider Track -->
-      <div id="slider-track" class="flex transition-transform duration-500 ease-in-out gap-4">
-
-        <!-- Slide 1 (PRIORITY LOAD) -->
-        <div class="w-64 flex-shrink-0">
-          <div class="h-48 rounded-lg overflow-hidden border border-zinc-200 dark:border-zinc-800 flex items-center justify-center">
-            <img 
-              src="src/Gallery/DSCF0983.webp?v=1"
-              alt="Gallery 1"
-              class="w-full h-full object-cover"
-              loading="eager"
-              fetchpriority="high"
-              decoding="async"
-              width="256"
-              height="192">
-          </div>
-        </div>
-
-        <!-- Slide 2 -->
-        <div class="w-64 flex-shrink-0">
-          <div class="h-48 rounded-lg overflow-hidden border border-zinc-200 dark:border-zinc-800 flex items-center justify-center">
-            <img 
-              src="src/Gallery/image13.webp?v=1"
-              alt="Gallery 2"
-              class="w-full h-full object-cover"
-              loading="lazy"
-              decoding="async"
-              width="256"
-              height="192">
-          </div>
-        </div>
-
-        <!-- Slide 3 -->
-        <div class="w-64 flex-shrink-0">
-          <div class="h-48 rounded-lg overflow-hidden border border-zinc-200 dark:border-zinc-800 flex items-center justify-center">
-            <img 
-              src="src/Gallery/googlepic.webp?v=1"
-              alt="Gallery 3"
-              class="w-full h-full object-cover"
-              loading="lazy"
-              decoding="async"
-              width="256"
-              height="192">
-          </div>
-        </div>
-
-        <!-- Slide 4 -->
-        <div class="w-64 flex-shrink-0">
-          <div class="h-48 rounded-lg overflow-hidden border border-zinc-200 dark:border-zinc-800 flex items-center justify-center">
-            <img 
-              src="src/Gallery/webdesign.webp?v=1"
-              alt="Gallery 5"
-              class="w-full h-full object-cover"
-              loading="lazy"
-              decoding="async"
-              width="256"
-              height="192">
-          </div>
-        </div>
-
-        <!-- Slide 5 -->
-        <div class="w-64 flex-shrink-0">
-          <div class="h-48 rounded-lg overflow-hidden border border-zinc-200 dark:border-zinc-800 flex items-center justify-center">
-            <img 
-              src="src/Gallery/image11.webp?v=1"
-              alt="Gallery 11"
-              class="w-full h-full object-cover"
-              loading="lazy"
-              decoding="async"
-              width="256"
-              height="192">
-          </div>
-        </div>
-
-        <!-- Slide 6 -->
-        <div class="w-64 flex-shrink-0">
-          <div class="h-48 rounded-lg overflow-hidden border border-zinc-200 dark:border-zinc-800 flex items-center justify-center">
-            <img 
-              src="src/Gallery/image12.webp?v=1"
-              alt="Gallery 12"
-              class="w-full h-full object-cover"
-              loading="lazy"
-              decoding="async"
-              width="256"
-              height="192">
-          </div>
-        </div>
-
-        <!-- Slide 7 -->
-        <div class="w-64 flex-shrink-0">
-          <div class="h-48 rounded-lg overflow-hidden border border-zinc-200 dark:border-zinc-800 flex items-center justify-center">
-            <img 
-              src="src/Gallery/dapimage.webp?v=1"
-              alt="Gallery 12"
-              class="w-full h-full object-cover"
-              loading="lazy"
-              decoding="async"
-              width="256"
-              height="192">
-          </div>
-        </div>
-
-        <div class="w-64 flex-shrink-0">
-          <div class="h-48 rounded-lg overflow-hidden border border-zinc-200 dark:border-zinc-800 flex items-center justify-center">
-            <img 
-              src="src/Gallery/image4.webp"
-              alt="Gallery 12"
-              class="w-full h-full object-cover"
-              loading="lazy"
-              decoding="async"
-              width="256"
-              height="192">
-          </div>
-        </div>
-
-      </div>
-    </div>
-      
-      <!-- Slider Indicators -->
-      <div class="flex justify-center gap-2 mt-6">
-        <div class="w-2 h-2 rounded-full bg-blue-500 dark:bg-blue-400"></div>
-        <div class="w-2 h-2 rounded-full bg-zinc-300 dark:bg-zinc-700"></div>
-        <div class="w-2 h-2 rounded-full bg-zinc-300 dark:bg-zinc-700"></div>
-        <div class="w-2 h-2 rounded-full bg-zinc-300 dark:bg-zinc-700"></div>
       </div>
     </div>
   </div>
-</section>
-</main>
 
-<!-- Contact Modal -->
-<div id="contact-modal" role="dialog" aria-modal="true" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-zinc-950/30 backdrop-blur-md px-4 opacity-0 transition-opacity duration-200">
-  <div class="contact-modal-panel w-full max-w-md rounded-2xl border border-zinc-200/80 bg-white shadow-[0_24px_60px_rgba(15,23,42,0.18)] p-6 sm:p-7 dark:border-zinc-800 dark:bg-zinc-950 opacity-0 translate-y-4 scale-[0.98] transition-all duration-200 ease-out">
-
-    <h3 class="text-lg font-semibold text-zinc-900 dark:text-white mb-4">
-      Get in Touch
-    </h3>
-
-    <form
-      id="contact-form"
-      class="space-y-3"
-    >
-      <input
-        type="text"
-        name="name"
-        placeholder="Your name"
-        required
-        class="w-full px-3 py-2.5 border border-zinc-300 dark:border-zinc-700 rounded-lg
-               bg-zinc-50 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-200 outline-none focus:ring-2 focus:ring-blue-500/40"
-      />
-
-      <input
-        type="email"
-        name="email"
-        placeholder="Your email"
-        required
-        class="w-full px-3 py-2.5 border border-zinc-300 dark:border-zinc-700 rounded-lg
-               bg-zinc-50 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-200 outline-none focus:ring-2 focus:ring-blue-500/40"
-      />
-
-      <textarea
-        name="message"
-        rows="4"
-        placeholder="Your message"
-        required
-        class="w-full px-3 py-2.5 border border-zinc-300 dark:border-zinc-700 rounded-lg
-               bg-zinc-50 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-200 outline-none focus:ring-2 focus:ring-blue-500/40"
-      ></textarea>
-
-      <div class="flex justify-end gap-2 pt-2">
-        <button
-          type="button"
-          onclick="closeContactModal()"
-          class="px-4 py-2 rounded-lg border border-zinc-300 text-zinc-700 hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-900 transition-colors"
-        >
-          Cancel
-        </button>
-
-        <button
-          type="submit"
-          class="px-4 py-2 rounded-lg bg-gradient-to-r from-blue-500 to-indigo-500 text-white hover:from-blue-400 hover:to-indigo-400 transition-all duration-300 hover:shadow-[0_12px_30px_rgba(59,130,246,0.38)]"
-        >
-          Send Message
-        </button>
-      </div>
-    </form>
-
-  </div>
-</div>
-
-<!-- Certification Modal -->
-<div id="cert-modal" role="dialog" aria-modal="true" class="hidden fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm px-4 py-8 transition-opacity duration-300 opacity-0 pointer-events-none">
-  <div class="glass-card w-full max-w-3xl p-6 sm:p-7 relative cert-modal-content opacity-0 scale-95 translate-y-8 transition-all duration-300">
-    <button type="button" onclick="closeCertModal()" class="absolute top-4 right-4 text-zinc-500 hover:text-zinc-900 dark:hover:text-white text-xl">
-      <i class="fas fa-times"></i>
-    </button>
-
-    <div class="space-y-6">
-      <div class="overflow-hidden rounded-3xl bg-transparent">
-        <div class="px-4 py-3">
-          <h3 id="cert-modal-title" class="text-2xl font-semibold text-zinc-900 dark:text-white"></h3>
-          <p id="cert-modal-issuer" class="text-sm text-zinc-500 dark:text-zinc-400 mt-1"></p>
-        </div>
-
-        <div class="overflow-hidden cert-slider-wrapper">
-          <div id="cert-slider-track" class="cert-slider-track flex">
-            <!-- slides inserted dynamically -->
-          </div>
-        </div>
-
-        <div class="flex items-center justify-between px-4 py-3">
-          <div class="flex items-center gap-2">
-            <button type="button" class="glass-button p-2 rounded-xl cert-prev"><i class="fas fa-chevron-left"></i></button>
-            <button type="button" class="glass-button p-2 rounded-xl cert-next"><i class="fas fa-chevron-right"></i></button>
-          </div>
-          <div id="cert-slider-indicators" class="flex justify-center gap-2"></div>
-        </div>
-      </div>
-
-      <div class="space-y-4">
-        <h4 class="text-sm font-semibold text-zinc-900 dark:text-white uppercase tracking-[0.18em] mb-3">Achievements</h4>
-        <ul id="cert-achievements" class="list-disc list-inside text-zinc-600 dark:text-zinc-400 space-y-2"></ul>
-      </div>
+  <!-- Footer -->
+  <footer class="max-w-6xl mx-auto px-4 sm:px-6 py-7 mt-12 border-t border-white/35 dark:border-white/10">
+    <div class="text-center text-zinc-500 dark:text-zinc-400 text-sm">
+      © <span id="year"></span> Vince Padilla. All rights reserved.
     </div>
-  </div>
-</div>
+  </footer>
 
-<!-- Project Modal -->
-<div id="project-modal" role="dialog" aria-modal="true" class="hidden fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm px-4 py-8 transition-opacity duration-300 opacity-0 pointer-events-none">
-  <div class="glass-card w-full max-w-4xl p-6 sm:p-7 relative project-modal-content opacity-0 scale-95 translate-y-8 transition-all duration-300">
-    <button type="button" onclick="closeProjectModal()" class="absolute top-4 right-4 text-zinc-500 hover:text-zinc-900 dark:hover:text-white text-xl">
-      <i class="fas fa-times"></i>
-    </button>
-
-    <div class="grid gap-6 lg:grid-cols-[1.2fr_0.8fr] items-start">
-      <div class="overflow-hidden rounded-3xl bg-transparent">
-        <div class="px-4 py-3">
-          <h3 id="project-modal-title" class="text-2xl font-semibold text-zinc-900 dark:text-white"></h3>
-          <p id="project-modal-subtitle" class="text-sm text-zinc-500 dark:text-zinc-400 mt-1"></p>
-        </div>
-
-        <div class="overflow-hidden">
-          <img id="project-modal-image" src="" alt="" class="w-full h-56 object-contain bg-transparent" loading="lazy" decoding="async">
-        </div>
-      </div>
-
-      <div class="space-y-6">
-        <h4 class="text-sm font-semibold text-zinc-900 dark:text-white uppercase tracking-[0.18em] mb-3">Project Description</h4>
-        <p id="project-modal-description" class="text-zinc-600 dark:text-zinc-400 text-sm"></p>
-
-        <div>
-          <h4 class="text-sm font-semibold text-zinc-900 dark:text-white uppercase tracking-[0.18em] mb-3">Tech Stack</h4>
-          <div id="project-modal-tech" class="flex flex-wrap gap-2"></div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Footer -->
-<footer class="max-w-6xl mx-auto px-4 sm:px-6 py-7 mt-12 border-t border-white/35 dark:border-white/10">
-  <div class="text-center text-zinc-500 dark:text-zinc-400 text-sm">
-    © <span id="year"></span> Vince Padilla. All rights reserved.
-  </div>
-</footer>
-
-<style>
-  .background-glow {
-    position: fixed;
-    border-radius: 9999px;
-    filter: blur(80px);
-    opacity: 0.38;
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  .bg-glow-1 {
-    width: 260px;
-    height: 260px;
-    top: 6%;
-    left: -50px;
-    background: radial-gradient(circle, rgba(99, 102, 241, 0.55), rgba(99, 102, 241, 0));
-  }
-
-  .bg-glow-2 {
-    width: 320px;
-    height: 320px;
-    top: 35%;
-    right: -90px;
-    background: radial-gradient(circle, rgba(16, 185, 129, 0.4), rgba(16, 185, 129, 0));
-  }
-
-  .bg-glow-3 {
-    width: 270px;
-    height: 270px;
-    bottom: 2%;
-    left: 30%;
-    background: radial-gradient(circle, rgba(236, 72, 153, 0.35), rgba(236, 72, 153, 0));
-  }
-
-  .glass-card {
-    background: linear-gradient(
-      140deg,
-      rgba(255, 255, 255, 0.64),
-      rgba(255, 255, 255, 0.36)
-    );
-    border: 1px solid rgba(255, 255, 255, 0.42);
-    border-radius: 1rem;
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-    box-shadow:
-      0 16px 35px rgba(15, 23, 42, 0.1),
-      inset 0 1px 0 rgba(255, 255, 255, 0.35);
-  }
-
-  .dark .glass-card {
-    background: linear-gradient(
-      140deg,
-      rgba(39, 39, 42, 0.62),
-      rgba(24, 24, 27, 0.5)
-    );
-    border-color: rgba(255, 255, 255, 0.11);
-    box-shadow:
-      0 18px 45px rgba(2, 6, 23, 0.45),
-      inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  }
-
-  /* Light mode: make glass more translucent and frosted */
-  html:not(.dark) .glass-card {
-    background: linear-gradient(
-      140deg,
-      rgba(255, 255, 255, 0.52),
-      rgba(255, 255, 255, 0.26)
-    );
-    border-color: rgba(255, 255, 255, 0.55);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    box-shadow:
-      0 20px 40px rgba(15, 23, 42, 0.10),
-      inset 0 1px 0 rgba(255, 255, 255, 0.45);
-  }
-
-  html:not(.dark) .section-hover:hover {
-    box-shadow:
-      0 26px 54px rgba(37, 99, 235, 0.12),
-      inset 0 1px 0 rgba(255, 255, 255, 0.5);
-  }
-
-  .section-hover {
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
-  }
-
-  .section-hover::before {
-    content: "";
-    position: absolute;
-    inset: -1px;
-    background: linear-gradient(120deg, rgba(59, 130, 246, 0.15), rgba(236, 72, 153, 0.08), rgba(16, 185, 129, 0.14));
-    opacity: 0;
-    transition: opacity 0.35s ease;
-    pointer-events: none;
-  }
-
-  .section-hover:hover {
-    transform: translateY(-2px);
-    box-shadow:
-      0 20px 44px rgba(59, 130, 246, 0.14),
-      inset 0 1px 0 rgba(255, 255, 255, 0.35);
-  }
-
-  .section-hover:hover::before {
-    opacity: 1;
-  }
-
-  .glass-button {
-    border: 1px solid rgba(255, 255, 255, 0.35);
-    background: rgba(255, 255, 255, 0.45);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    transition: all 0.3s ease;
-  }
-
-  .dark .glass-button {
-    border-color: rgba(255, 255, 255, 0.14);
-    background: rgba(39, 39, 42, 0.48);
-  }
-
-  .glass-button:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.15);
-  }
-
-  .stack-chip {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.4rem 0.7rem;
-    border-radius: 9999px;
-    font-weight: 500;
-    font-size: 0.9rem;
-    color: rgb(39 39 42);
-    background: rgba(255, 255, 255, 0.55);
-    border: 1px solid rgba(255, 255, 255, 0.45);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    transition: transform 0.2s ease, box-shadow 0.25s ease, background 0.25s ease, border-color 0.25s ease;
-  }
-
-  .dark .stack-chip {
-    color: rgb(229 229 229);
-    background: rgba(39, 39, 42, 0.55);
-    border-color: rgba(255, 255, 255, 0.12);
-  }
-
-  .stack-chip:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 12px 24px rgba(15, 23, 42, 0.18);
-  }
-
-  .profile-image {
-    transition: opacity 0.35s ease, transform 0.35s ease, filter 0.35s ease;
-    opacity: 1;
-  }
-
-  .profile-image.is-switching {
-    opacity: 0.28;
-    transform: scale(0.985);
-    filter: saturate(0.9) brightness(0.95);
-  }
-
-  .tech-item {
-    padding-left: 1rem;
-    padding-right: 1rem;
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
-    border-radius: 0.75rem;
-    border-width: 1px;
-    transition: all 0.3s ease;
-  }
   
-  .tech-item:hover {
-    transform: translateY(-3px) scale(1.01);
-    box-shadow: 0 14px 30px -10px rgba(59, 130, 246, 0.35);
-    cursor: pointer;
-  }
 
-  .experience-item {
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid rgb(244 244 245);
-  }
   
-  .dark .experience-item {
-    border-bottom-color: rgb(39 39 42);
-  }
+
   
-  .experience-item:last-child {
-    border-bottom: 0;
-    padding-bottom: 0;
-  }
 
-  .year-badge {
-    background-color: rgb(244 244 245);
-    color: rgb(63 63 70);
-    font-size: 0.75rem;
-    font-weight: 500;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    padding-top: 0.25rem;
-    padding-bottom: 0.25rem;
-    border-radius: 0.25rem;
-  }
-  
-  .dark .year-badge {
-    background-color: rgb(39 39 42);
-    color: rgb(212 212 216);
-  }
-
-  .project-item {
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid rgb(244 244 245);
-    transition: all 0.3s ease;
-  }
-  
-  .dark .project-item {
-    border-bottom-color: rgb(39 39 42);
-  }
-  
-  .project-item:hover {
-    transform: translateX(2px);
-    border-bottom-color: rgb(125 211 252);
-  }
-
-  .project-item:last-child {
-    border-bottom: 0;
-    padding-bottom: 0;
-  }
-
-  .certification-item {
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid rgb(244 244 245);
-    background: transparent;
-  }
-  
-  .dark .certification-item {
-    border-bottom-color: rgb(39 39 42);
-  }
-  
-  .certification-item:last-child {
-    border-bottom: 0;
-    padding-bottom: 0;
-  }
-
-  /* Minimal lists (projects/certifications) */
-  .mini-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .mini-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.9rem 0.85rem;
-    margin-top: 0.75rem; 
-    border-radius: 0.75rem;
-    transition: background 0.25s ease, transform 0.25s ease;
-  }
-
-  .mini-item:hover {
-    background: rgba(255, 255, 255, 0.45);
-    transform: translateX(2px);
-  }
-
-  .dark .mini-item:hover {
-    background: rgba(39, 39, 42, 0.5);
-  }
-
-  .mini-item .item-title {
-    font-weight: 600;
-    color: rgb(24 24 27);
-  }
-
-  .dark .mini-item .item-title {
-    color: rgb(244 244 245);
-  }
-
-  .mini-item .item-subtitle {
-    font-size: 0.85rem;
-    color: rgb(113 113 122);
-  }
-
-  .dark .mini-item .item-subtitle {
-    color: rgb(161 161 170);
-  }
-
-  button.mini-item {
-    background: transparent;
-    border: none;
-    padding: 0;
-    font: inherit;
-    width: 100%;
-    text-align: left;
-    cursor: pointer;
-  }
-
-  .project-modal-content,
-  .cert-modal-content {
-    max-height: calc(100vh - 120px);
-    overflow-y: auto;
-  }
-
-  .cert-modal-content {
-    max-width: 640px;
-  }
-
-  .cert-slider-wrapper {
-    width: 100%;
-    max-width: 560px;
-    margin: 0 auto;
-  }
-
-  /* Title overlay removed; titles are displayed above the image */
-
-  #project-modal.project-open,
-  #cert-modal.project-open {
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  #project-modal.project-open .project-modal-content,
-  #cert-modal.project-open .cert-modal-content {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-
-  .project-tech-chip {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.45rem 0.8rem;
-    border-radius: 9999px;
-    background: rgba(255, 255, 255, 0.58);
-    border: 1px solid rgba(255, 255, 255, 0.35);
-    color: rgb(30 30 30);
-    font-size: 0.85rem;
-  }
-
-  /* Modal backdrop: light glass in light mode, darker tint in dark mode */
-  #project-modal, #cert-modal {
-    background: rgba(2,6,23,0.62); /* default darker tint for dark mode */
-  }
-
-  html:not(.dark) #project-modal, html:not(.dark) #cert-modal {
-    background: linear-gradient(180deg, rgba(255,255,255,0.62), rgba(255,255,255,0.48));
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-  }
-
-  /* Slightly stronger glass effect for the modal content on light mode */
-  html:not(.dark) .project-modal-content, html:not(.dark) .cert-modal-content {
-    background: linear-gradient(140deg, rgba(255,255,255,0.72), rgba(255,255,255,0.44));
-    border: 1px solid rgba(255,255,255,0.6);
-    box-shadow: 0 28px 60px rgba(15, 23, 42, 0.08), inset 0 1px 0 rgba(255,255,255,0.6);
-  }
-
-  .dark .project-tech-chip {
-    background: rgba(39, 39, 42, 0.6);
-    border-color: rgba(255, 255, 255, 0.12);
-    color: rgb(243 244 246);
-  }
-
-  /* Certification modal slider */
-  .cert-slider-track {
-    display: flex;
-    transition: transform 0.35s ease;
-  }
-
-  .cert-slide {
-    flex: 0 0 100%;
-    aspect-ratio: 16 / 9;
-    min-height: 200px;
-    max-height: 320px;
-  }
-
-  #cert-slider-track img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    background: rgba(255,255,255,0.6);
-  }
-
-  @media (max-width: 768px) {
-    .project-modal-content,
-    .cert-modal-content {
-      padding: 1.25rem;
-      max-width: calc(100vw - 24px);
-    }
-
-    .cert-slide {
-      min-height: 180px;
-      max-height: 280px;
-    }
-
-    .project-modal-content img {
-      height: 220px;
-    }
-  }
-
-  @media (max-width: 640px) {
-    .project-modal-content,
-    .cert-modal-content {
-      max-width: calc(100vw - 16px);
-      padding: 1rem;
-    }
-
-    .cert-slide {
-      min-height: 160px;
-      max-height: 240px;
-    }
-
-    .project-modal-content img {
-      height: 180px;
-    }
-  }
-
-  .mini-caret {
-    opacity: 0.6;
-    transition: transform 0.25s ease, opacity 0.25s ease;
-  }
-
-  .mini-item:hover .mini-caret {
-    transform: translateX(2px);
-    opacity: 0.9;
-  }
-
-  .aspect-square {
-    aspect-ratio: 1 / 1;
-  }
-  
-  #slider-track {
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  
-  .flex.justify-center.gap-2 div {
-    transition: all 0.3s ease;
-  }
-  
-  .flex.justify-center.gap-2 div:hover {
-    transform: scale(1.3);
-    cursor: pointer;
-  }
-  
-  /* Hover effects for static images */
-  .grid.grid-cols-2 > div {
-    transition: all 0.3s ease;
-  }
-  
-  .grid.grid-cols-2 > div:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
-  }
-  
-  .dark .grid.grid-cols-2 > div:hover {
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
-  }
-  
-  /* Hover effects for slider items */
-  .w-64 > div {
-    transition: all 0.3s ease;
-  }
-  
-  .w-64 > div:hover {
-    transform: scale(1.04);
-    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.3);
-  }
-
-  @media (max-width: 640px) {
-    .background-glow {
-      opacity: 0.25;
-      filter: blur(65px);
-    }
-
-    .glass-card {
-      border-radius: 0.9rem;
-    }
-
-    .section-hover:hover {
-      transform: none;
-    }
-  }
-</style>
-
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-
-  const profileImage = document.getElementById('profile-image');
-
-  function updateProfileImageByTheme(isDarkMode) {
-    if (!profileImage) return;
-
-    const targetSrc = isDarkMode
-      ? profileImage.dataset.darkSrc
-      : profileImage.dataset.lightSrc;
-
-    if (!targetSrc || profileImage.getAttribute('src') === targetSrc) return;
-
-    profileImage.classList.add('is-switching');
-    setTimeout(() => {
-      profileImage.setAttribute('src', targetSrc);
-      profileImage.classList.remove('is-switching');
-    }, 180);
-  }
-
-  // Dark Mode Toggle
-  function toggleDark() {
-    const html = document.documentElement;
-    html.classList.toggle('dark');
-    const isDark = html.classList.contains('dark');
-    updateProfileImageByTheme(isDark);
-    
-    const dot = document.getElementById('dot');
-    if (isDark) {
-      dot.style.transform = 'translateX(24px)';
-    } else {
-      dot.style.transform = 'translateX(0)';
-    }
-  }
-
-  // Button actions
-  function scheduleCall() {
-    alert('Schedule a Call: This would open a calendar booking system.');
-  }
-
-  function sendEmail() {
-    const modal = document.getElementById('contact-modal');
-    if (!modal) return;
-
-    const panel = modal.querySelector('.contact-modal-panel');
-    window.clearTimeout(window.__contactModalCloseTimer);
-
-    modal.classList.remove('hidden');
-    requestAnimationFrame(() => {
-      modal.classList.add('opacity-100');
-      if (panel) {
-        panel.classList.add('opacity-100', 'translate-y-0', 'scale-100');
-      }
-      activateModalFocusTrap(modal);
-      const nameInput = document.getElementById('contact-name');
-      if (nameInput) {
-        nameInput.focus();
-      }
-    });
-  }
-
-  function closeContactModal() {
-    const modal = document.getElementById('contact-modal');
-    if (!modal) return;
-
-    const panel = modal.querySelector('.contact-modal-panel');
-    modal.classList.remove('opacity-100');
-    if (panel) {
-      panel.classList.remove('opacity-100', 'translate-y-0', 'scale-100');
-    }
-
-    deactivateModalFocusTrap();
-
-    window.__contactModalCloseTimer = window.setTimeout(() => {
-      modal.classList.add('hidden');
-    }, 200);
-  }
-
-  function validateEmail(email) {
-    return /\S+@\S+\.\S+/.test(email);
-  }
-
-  function submitContact(e) {
-    e.preventDefault();
-    const name = (document.getElementById('contact-name') || {}).value || '';
-    const email = (document.getElementById('contact-email') || {}).value || '';
-    const message = (document.getElementById('contact-message') || {}).value || '';
-
-    if (!name.trim() || !email.trim() || !message.trim()) {
-      alert('Please fill out name, email, and message.');
-      return;
-    }
-    if (!validateEmail(email.trim())) {
-      alert('Please enter a valid email address.');
-      return;
-    }
-
-    const subject = `Message from ${name.trim()} (${email.trim()})`;
-    const body = message.trim();
-    const mailto = `mailto:hello@bryllim.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    // Open user's email client with prefilled message
-    window.location.href = mailto;
-    closeContactModal();
-  }
-
-  const form = document.getElementById('contact-form');
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    const formData = new FormData(form);
-
-    try {
-      const response = await fetch('https://formspree.io/f/mqeeznwp', {
-        method: 'POST',
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
-      });
-
-      if (response.ok) {
-        alert('Message sent successfully!');
-        form.reset();
-        closeContactModal();
-      } else {
-        alert('Something went wrong. Please try again.');
-      }
-    } catch (error) {
-      alert('Network error. Please try again later.');
-    }
-  });
-
-  // Close modal on Escape and trap focus inside the active modal
-  document.addEventListener('keydown', (ev) => {
-    if (ev.key === 'Escape') {
-      if (!document.getElementById('project-modal')?.classList.contains('hidden')) {
-        closeProjectModal();
-      } else if (!document.getElementById('cert-modal')?.classList.contains('hidden')) {
-        closeCertModal();
-      } else {
-        closeContactModal();
-      }
-    }
-
-    if (ev.key === 'Tab' && activeModal) {
-      if (!modalFocusableElements.length) return;
-      if (ev.shiftKey) {
-        if (document.activeElement === firstFocusableElement) {
-          ev.preventDefault();
-          lastFocusableElement.focus();
-        }
-      } else {
-        if (document.activeElement === lastFocusableElement) {
-          ev.preventDefault();
-          firstFocusableElement.focus();
-        }
-      }
-    }
-  });
-
-  document.addEventListener('focusin', (event) => {
-    if (activeModal && !activeModal.contains(event.target)) {
-      event.preventDefault();
-      firstFocusableElement?.focus();
-    }
-  });
-
-  const projects = {
-    gmcamsys: {
-      title: 'GM-STUDIO',
-      subtitle: 'Web-Based Services Showcasing Website',
-      description: 'A modern showcasing website for a photo studio business, featuring their services, pricing, photography portfolio, and memorable client moments',
-      image: 'src/projects/gmcamera.png?v=1',
-      tech: [
-        { label: 'HTML', icon: 'fa-brands fa-html5 text-orange-500' },
-        { label: 'CSS', icon: 'fa-brands fa-css3-alt text-sky-500' },
-        { label: 'JavaScript', icon: 'fab fa-js text-yellow-500' },
-        { label: 'Responsive Design', icon: 'fas fa-mobile-screen-button text-blue-500' }
-      ]
-    },
-    ldcdentsys: {
-      title: 'LDC-DENTSYS',
-      subtitle: 'Dental Appointment System with AI Support',
-      description: 'A dental appointment and patient management system with AI-powered scheduling suggestions, appointment reminders, and an intuitive clinic dashboard.',
-      image: 'src/projects/ldc.png?v=1',
-      tech: [
-        { label: 'HTML', icon: 'fa-brands fa-html5 text-orange-500' },
-        { label: 'CSS', icon: 'fa-brands fa-css3-alt text-sky-500' },
-        { label: 'JavaScript', icon: 'fab fa-js text-yellow-500' },
-        { label: 'PHP', icon: 'fab fa-php text-purple-500' },
-        { label: 'MySQL', icon: 'fas fa-database text-indigo-500' },
-        { label: 'AI Integration', icon: 'fas fa-robot text-fuchsia-500' }
-      ]
-    },
-    owlix: {
-      title: 'OWLIX',
-      subtitle: 'Career Tracking and File Management Mobile App',
-      description: 'A mobile app designed to help users manage their career development, track achievements, and organize important files in one place.',
-      image: 'src/projects/owlix.webp?v=1',
-      tech: [
-        { label: 'Android', icon: 'fab fa-android text-green-500' },
-        { label: 'Native React', icon: 'fa-brands fa-react text-blue-500' },
-        { label: 'Expo Go', icon: 'fa-solid fa-angle-up text-slate-500' },
-        { label: 'Supabase', icon: 'fa-solid fa-server text-green-500' }
-      ]
-    },
-    gatepass: {
-      title: 'Gatepass Request & Management',
-      subtitle: 'Web-Based System for Development Academy of the Philippines',
-      description: 'A responsive facility access control system with QR code-based attendance tracking to streamline entry and exit management.',
-      image: 'src/projects/dap.png?v=1',
-      tech: [
-        { label: 'HTML', icon: 'fa-brands fa-html5 text-orange-500' },
-        { label: 'CSS', icon: 'fa-brands fa-css3-alt text-sky-500' },
-        { label: 'JavaScript', icon: 'fab fa-js text-yellow-500' },
-        { label: 'PHP', icon: 'fab fa-php text-purple-500' },
-        { label: 'Laravel', icon: 'fa-brands fa-laravel text-orange-500' },
-        { label: 'Tailwind CSS', icon: 'fas fa-wind text-teal-500' },
-        { label: 'MySQL', icon: 'fas fa-database text-indigo-500' }
-      ]
-    }
-  };
-
-  const certifications = {
-    'dean-lister': {
-      title: 'Dean Lister',
-      issuer: 'University of Makati',
-      images: ['src/certificates/deanlister1.webp?v=1', 'src/certificates/deanlister2.webp?v=1', 'src/certificates/deanlister3.webp?v=1'],
-      achievements: ['Recognized on the Dean\'s List for academic excellence']
-    },
-    'infotech-2025': {
-      title: 'Infotech Olympics 2025',
-      issuer: 'University of Makati',
-      images: ['src/Gallery/image5.webp?v=1','src/certificates/certinfotech.webp?v=1'],
-      achievements: ['Champion in Web Design Category', 'Showcased skills in UI/UX design, frontend development, and teamwork']
-    },
-    'skills-2025': {
-      title: 'IT 14th Skills Olympics 2025',
-      issuer: 'University of Makati',
-      images: ['src/certificates/itolympics.webp?v=1'],
-      achievements: ['Participated in Web Development Competition', 'Represented the University of Makati in the Web Design Category']
-    }
-  };
-
-  function closeProjectModal() {
-    const modal = document.getElementById('project-modal');
-    if (!modal) return;
-    modal.classList.remove('project-open');
-    deactivateModalFocusTrap();
-    document.body.style.overflow = '';
-    window.setTimeout(() => {
-      modal.classList.add('hidden');
-    }, 280);
-  }
-
-  function openProjectModal(projectKey) {
-    const project = projects[projectKey];
-    if (!project) return;
-
-    const modal = document.getElementById('project-modal');
-    const titleEl = document.getElementById('project-modal-title');
-    const subtitleEl = document.getElementById('project-modal-subtitle');
-    const descriptionEl = document.getElementById('project-modal-description');
-    const imageEl = document.getElementById('project-modal-image');
-    const techContainer = document.getElementById('project-modal-tech');
-
-    if (!modal || !titleEl || !subtitleEl || !descriptionEl || !imageEl || !techContainer) return;
-
-    titleEl.textContent = project.title;
-    subtitleEl.textContent = project.subtitle;
-    descriptionEl.textContent = project.description;
-    imageEl.src = project.image;
-    imageEl.alt = project.title;
-
-    techContainer.innerHTML = '';
-    project.tech.forEach((tech) => {
-      const chip = document.createElement('span');
-      chip.className = 'project-tech-chip';
-
-      const icon = document.createElement('i');
-      icon.className = `${tech.icon} mr-2`;
-      chip.appendChild(icon);
-
-      chip.appendChild(document.createTextNode(tech.label));
-      techContainer.appendChild(chip);
-    });
-
-    modal.classList.remove('hidden');
-    document.body.style.overflow = 'hidden';
-    window.requestAnimationFrame(() => {
-      modal.classList.add('project-open');
-      activateModalFocusTrap(modal);
-    });
-  }
-
-  document.querySelectorAll('.project-trigger').forEach((item) => {
-    item.addEventListener('click', () => openProjectModal(item.dataset.project));
-  });
-
-  // Certification modal logic
-  let certCurrentIndex = 0;
-  let certCurrentKey = null;
-  function openCertModal(certKey) {
-    const cert = certifications[certKey];
-    if (!cert) return;
-
-    certCurrentKey = certKey;
-
-    const modal = document.getElementById('cert-modal');
-    const titleEl = document.getElementById('cert-modal-title');
-    const issuerEl = document.getElementById('cert-modal-issuer');
-    const sliderTrack = document.getElementById('cert-slider-track');
-    const indicators = document.getElementById('cert-slider-indicators');
-    const achievementsEl = document.getElementById('cert-achievements');
-
-    if (!modal || !titleEl || !issuerEl || !sliderTrack || !indicators || !achievementsEl) return;
-
-    titleEl.textContent = cert.title;
-    issuerEl.textContent = cert.issuer;
-
-    // render slides
-    sliderTrack.innerHTML = '';
-    cert.images.forEach((src) => {
-      const slide = document.createElement('div');
-      slide.className = 'cert-slide';
-      const img = document.createElement('img');
-      img.src = src;
-      img.alt = cert.title;
-      slide.appendChild(img);
-      sliderTrack.appendChild(slide);
-    });
-
-    // indicators
-    indicators.innerHTML = '';
-    cert.images.forEach((_, i) => {
-      const dot = document.createElement('div');
-      dot.className = 'w-2 h-2 rounded-full bg-zinc-300 dark:bg-zinc-700';
-      dot.addEventListener('click', () => {
-        certCurrentIndex = i;
-        updateCertSlider();
-      });
-      indicators.appendChild(dot);
-    });
-
-    // achievements
-    achievementsEl.innerHTML = '';
-    cert.achievements.forEach((a) => {
-      const li = document.createElement('li');
-      li.textContent = a;
-      achievementsEl.appendChild(li);
-    });
-
-    certCurrentIndex = 0;
-    updateCertSlider();
-
-    modal.classList.remove('hidden');
-    document.body.style.overflow = 'hidden';
-    window.requestAnimationFrame(() => {
-      modal.classList.add('project-open');
-      activateModalFocusTrap(modal);
-    });
-  }
-
-  function updateCertSlider() {
-    const sliderTrack = document.getElementById('cert-slider-track');
-    const indicators = document.getElementById('cert-slider-indicators');
-    if (!sliderTrack || !indicators) return;
-    sliderTrack.style.transform = `translateX(-${certCurrentIndex * 100}%)`;
-
-    Array.from(indicators.children).forEach((dot, i) => {
-      if (i === certCurrentIndex) {
-        dot.classList.remove('bg-zinc-300', 'dark:bg-zinc-700');
-        dot.classList.add('bg-blue-500', 'dark:bg-blue-400');
-        dot.style.width = '12px';
-      } else {
-        dot.classList.remove('bg-blue-500', 'dark:bg-blue-400');
-        dot.classList.add('bg-zinc-300', 'dark:bg-zinc-700');
-        dot.style.width = '8px';
-      }
-    });
-  }
-
-  function closeCertModal() {
-    const modal = document.getElementById('cert-modal');
-    if (!modal) return;
-    modal.classList.remove('project-open');
-    deactivateModalFocusTrap();
-    document.body.style.overflow = '';
-    window.setTimeout(() => {
-      modal.classList.add('hidden');
-    }, 280);
-  }
-
-  function getModalFocusableElements(modal) {
-    if (!modal) return [];
-    return Array.from(modal.querySelectorAll('a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])'))
-      .filter((el) => el.offsetParent !== null);
-  }
-
-  let activeModal = null;
-  let modalFocusableElements = [];
-  let firstFocusableElement = null;
-  let lastFocusableElement = null;
-
-  function activateModalFocusTrap(modal) {
-    activeModal = modal;
-    modalFocusableElements = getModalFocusableElements(modal);
-    if (modalFocusableElements.length) {
-      firstFocusableElement = modalFocusableElements[0];
-      lastFocusableElement = modalFocusableElements[modalFocusableElements.length - 1];
-      firstFocusableElement.focus();
-    }
-  }
-
-  function deactivateModalFocusTrap() {
-    activeModal = null;
-    modalFocusableElements = [];
-    firstFocusableElement = null;
-    lastFocusableElement = null;
-  }
-
-  function attachModalBackdropClose(modal, closeHandler) {
-    if (!modal) return;
-    modal.addEventListener('click', (event) => {
-      if (event.target === modal) {
-        closeHandler();
-      }
-    });
-  }
-
-  document.querySelectorAll('.cert-trigger').forEach((item) => {
-    item.addEventListener('click', () => openCertModal(item.dataset.cert));
-  });
-
-  document.querySelectorAll('.cert-next').forEach(btn => btn.addEventListener('click', () => {
-    if (!certCurrentKey) return;
-    const cert = certifications[certCurrentKey];
-    if (!cert) return;
-    certCurrentIndex = Math.min(certCurrentIndex + 1, cert.images.length - 1);
-    updateCertSlider();
-  }));
-
-  document.querySelectorAll('.cert-prev').forEach(btn => btn.addEventListener('click', () => {
-    if (!certCurrentKey) return;
-    certCurrentIndex = Math.max(certCurrentIndex - 1, 0);
-    updateCertSlider();
-  }));
-
-  attachModalBackdropClose(document.getElementById('project-modal'), closeProjectModal);
-  attachModalBackdropClose(document.getElementById('cert-modal'), closeCertModal);
-  attachModalBackdropClose(document.getElementById('contact-modal'), closeContactModal);
-
-  function visitCommunity() {
-    alert('Visit Community: This would redirect to the community page.');
-  }
-
-  function viewAllTech() {
-    alert('View All Tech: All technologies and skills are already displayed.');
-  }
-
-  function viewAllProjects() {
-    alert('View All Projects: All projects are already displayed.');
-  }
-
-  function viewAllCertifications() {
-    alert('View All Certifications: All certifications are already displayed.');
-  }
-
-  // Initialize dark mode based on existing class or system preference
-  const dotEl = document.getElementById('dot');
-  if (document.documentElement.classList.contains('dark') || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-    document.documentElement.classList.add('dark');
-    updateProfileImageByTheme(true);
-    if (dotEl) dotEl.style.transform = 'translateX(24px)';
-  } else {
-    updateProfileImageByTheme(false);
-    if (dotEl) dotEl.style.transform = 'translateX(0)';
-  }
-
-  //Gallery
-  let currentSlideIndex = 0;
-  let slideWidth = 0; // computed dynamically
-  let slidesToShow = 3; // Number of slides visible at once
-  const galleryTrack = document.getElementById('slider-track');
-  const sliderIndicatorsContainer = document.querySelector('.flex.justify-center.gap-2.mt-6');
-
-  function getTotalSlides() {
-    return galleryTrack ? galleryTrack.children.length : 0;
-  }
-
-  function getMaxSlide() {
-    return Math.max(0, getTotalSlides() - slidesToShow);
-  }
-
-  function updateGallerySlider() {
-    if (!galleryTrack) return;
-    const translateX = Math.round(currentSlideIndex * slideWidth);
-    galleryTrack.style.transform = `translateX(-${translateX}px)`;
-    updateGalleryIndicators();
-  }
-
-  function updateGalleryIndicators() {
-    if (!sliderIndicatorsContainer) return;
-    const indicators = Array.from(sliderIndicatorsContainer.children);
-    const maxSlide = getMaxSlide();
-    const active = Math.min(currentSlideIndex, maxSlide);
-
-    indicators.forEach((indicator, i) => {
-      if (i === active) {
-        indicator.classList.remove('bg-zinc-300', 'dark:bg-zinc-700');
-        indicator.classList.add('bg-blue-500', 'dark:bg-blue-400');
-        indicator.style.width = '12px';
-      } else {
-        indicator.classList.remove('bg-blue-500', 'dark:bg-blue-400');
-        indicator.classList.add('bg-zinc-300', 'dark:bg-zinc-700');
-        indicator.style.width = '8px';
-      }
-    });
-  }
-
-  function renderIndicators() {
-    if (!sliderIndicatorsContainer || !galleryTrack) return;
-    sliderIndicatorsContainer.innerHTML = '';
-    const maxSlide = getMaxSlide();
-    const count = maxSlide + 1;
-    for (let i = 0; i < count; i++) {
-      const dot = document.createElement('div');
-      dot.className = 'w-2 h-2 rounded-full';
-      dot.addEventListener('click', () => {
-        currentSlideIndex = i;
-        updateGallerySlider();
-      });
-      sliderIndicatorsContainer.appendChild(dot);
-    }
-  }
-
-  function nextSlide() {
-    const maxSlide = getMaxSlide();
-    if (currentSlideIndex < maxSlide) {
-      currentSlideIndex += 1;
-    } else {
-      currentSlideIndex = 0;
-    }
-    updateGallerySlider();
-  }
-
-  function prevSlide() {
-    const maxSlide = getMaxSlide();
-    if (currentSlideIndex > 0) {
-      currentSlideIndex -= 1;
-    } else {
-      currentSlideIndex = maxSlide;
-    }
-    updateGallerySlider();
-  }
-
-  function computeDimensions() {
-    if (!galleryTrack) return;
-    const sliderContainer = galleryTrack.parentElement;
-    const containerWidth = sliderContainer.clientWidth;
-    const gap = parseFloat(getComputedStyle(galleryTrack).gap) || 16;
-    const slides = Array.from(galleryTrack.children);
-    slideWidth = Math.floor((containerWidth - gap * (slidesToShow - 1)) / slidesToShow);
-
-    slides.forEach((slide) => {
-      slide.style.flex = `0 0 ${slideWidth}px`;
-    });
-    // account for gap when translating
-    slideWidth = slideWidth + gap;
-  }
-
-  function adjustSlidesToShow() {
-    if (window.innerWidth < 640) { // Mobile
-      slidesToShow = 1;
-    } else if (window.innerWidth < 1024) { // Tablet
-      slidesToShow = 2;
-    } else { // Desktop
-      slidesToShow = 3;
-    }
-    computeDimensions();
-    renderIndicators();
-    const maxSlide = getMaxSlide();
-    if (currentSlideIndex > maxSlide) currentSlideIndex = maxSlide;
-    updateGallerySlider();
-  }
-
-  let galleryAutoSlide;
-  function startAutoSlide() {
-    clearInterval(galleryAutoSlide);
-    galleryAutoSlide = setInterval(() => nextSlide(), 4000);
-  }
-
-  document.addEventListener('DOMContentLoaded', () => {
-    adjustSlidesToShow();
-    startAutoSlide();
-
-    const sliderContainer = galleryTrack ? galleryTrack.parentElement : null;
-    if (sliderContainer) {
-      sliderContainer.addEventListener('mouseenter', () => clearInterval(galleryAutoSlide));
-      sliderContainer.addEventListener('mouseleave', () => startAutoSlide());
-    }
-
-    window.addEventListener('resize', () => {
-      adjustSlidesToShow();
-    });
-  });
-</script>
-
-<script>
-  if ('serviceWorker' in navigator && location.protocol !== 'file:') {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('./sw.js').catch(() => {});
-    });
-  }
-</script>
-
+  <script src="script.js"></script>
 </body>
+
 </html>
